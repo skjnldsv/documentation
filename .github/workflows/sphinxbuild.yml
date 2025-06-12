@@ -58,8 +58,8 @@ jobs:
       run: |
         cd ${{ matrix.manual.directory }}
         make pdf
-        rename 's/\ /_/' ${{ matrix.manual.build_pdf_path }}/*.pdf
-        cp ${{ matrix.manual.build_pdf_path }}/*.pdf ${{ matrix.manual.directory }}/${{ matrix.manual.build_path }}/
+        ls -la ${{ matrix.manual.build_pdf_path }}
+        cp ${{ matrix.manual.build_pdf_path }}/*.pdf ${{ matrix.manual.build_path }}/
 
     - name: Upload static documentation
       uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
