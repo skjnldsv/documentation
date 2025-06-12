@@ -131,6 +131,9 @@ jobs:
             cp -r "$artifact/" ${{ steps.branch.outputs.branch_name }}
           fi
         done
+
+        # Move pdf files to the root of the branch_name
+        mv ${{ steps.branch.outputs.branch_name }}/*/*.pdf ${{ steps.branch.outputs.branch_name }}/ || true
     
     - name: Add go.php redirect
       run: |
