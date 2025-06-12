@@ -19,6 +19,7 @@ jobs:
           #   directory: "user_manual"
           #   make_target: "html"
           #   build_path: "_build/html"
+          #   build_pdf_path: "_build/pdf"
           #   publish: true
             
           # - name: "user_manual-en"
@@ -37,6 +38,7 @@ jobs:
             directory: "admin_manual"
             make_target: "html"
             build_path: "_build/html/com"
+            build_pdf_path: "_build/pdf"
             publish: true
 
     steps:
@@ -53,15 +55,12 @@ jobs:
       run: cd ${{ matrix.manual.directory }} && make ${{ matrix.manual.make_target }}
 
     - name: Build pdf documentation
+      if: ${{ matrix.manual.build_pdf_path }}
       run: |
         cd ${{ matrix.manual.directory }}
-        # Check if make pdf command exists
-        if grep -q "^pdf:" Makefile; then
-          make pdf
-          cp _build/pdf/*.pdf ${{ matrix.manual.directory }}/${{ matrix.manual.build_path }}/
-        else
-          echo "No PDF build target found, skipping PDF build."
-        fi
+        make pdf
+        rename 's/\ /_/' ${{ matrix.manual.build_pdf_path }}/*.pdf
+        cp ${{ matrix.manual.build_pdf_path }}/*.pdf ${{ matrix.manual.directory }}/${{ matrix.manual.build_path }}/
 
     - name: Upload static documentation
       uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
