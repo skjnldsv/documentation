@@ -3,12 +3,14 @@
 
 # Generated Files
 */_build/*
+build/index.html
 build/vendor/
 build/server/
 build/composer.lock
 developer_manual/api/
 server/
 _build
+index.html
 
 *.pyc
 
@@ -59,4 +61,3 @@ Pipfile.lock
 
 # ack-grep
 .ackrc
-index.html

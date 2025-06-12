@@ -29,6 +29,8 @@ jobs:
     - name: Generate index.html
       run: |
         php build/build-index.php ${{ steps.branch.outputs.branches }}
+        mv build/index.html /tmp/index.html
+        mv build/static/ /tmp/static/
 
     - name: Switch to gh-pages branch
       run: |
@@ -38,6 +40,9 @@ jobs:
     
     - name: Commit and push changes
       run: |
+        # Move the generated index.html and static files to the root of the gh-pages branch
+        mv /tmp/index.html index.html
+        mv /tmp/static/ static/
         git add index.html
         git commit -m "Update index.html for documentation" || echo "No changes to commit"
         git push origin gh-pages
