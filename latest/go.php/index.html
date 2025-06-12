@@ -71,6 +71,7 @@
             'developer-css': '/developer_manual/html_css_design/css.html',
             'developer-theming': '/developer_manual/basics/front-end/theming.html',
 
+			// Please always include the en language code in the URL
             'user': '/user_manual',
             'user-2fa': '/user_manual/en/user_2fa.html',
             'user-encryption': '/user_manual/en/files/encrypting_files.html',
@@ -82,64 +83,80 @@
             'user-trashbin': '/user_manual/en/files/deleted_file_management.html',
             'user-versions': '/user_manual/en/files/version_control.html',
             'user-webdav': '/user_manual/en/files/access_webdav.html'
-        };
+        }
 
         function getQueryParam(param) {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param);
+            const urlParams = new URLSearchParams(window.location.search)
+            return urlParams.get(param)
         }
 
         function getPreferredLanguage() {
-            const languages = navigator.languages || [navigator.language];
-            const supportedLanguages = ['en', 'de', 'fr', 'es', 'it', 'pt', 'ru', 'ja', 'zh', 'ko']; // Add more as needed
-            
-            for (let lang of languages) {
-                const langCode = lang.split('-')[0].toLowerCase();
-                if (supportedLanguages.includes(langCode)) {
-                    return langCode;
-                }
-            }
+			const languages = navigator.languages || [navigator.language]
+			const supportedLanguages = [
+				'af', 'br', 'cs', 'de', 'el_GR', 'es', 'fi_FI', 'ga', 'hr', 'hu_HU', 'it',
+				'ko', 'nb_NO', 'nn', 'pt_BR', 'ro', 'si', 'sr', 'ta', 'tr', 'uz', 'zh_CN',
+				'zh_TW', 'ar', 'ca', 'da', 'el', 'eo', 'eu', 'fr', 'gl', 'hu', 'id', 'ja_JP',
+				'mn', 'nl', 'pl', 'pt_PT', 'ru', 'sk_SK', 'sq', 'sv', 'th', 'uk', 'vi', 'zh_HK',
+			]
 
-            return 'en'; // default to English
-        }
+			for (const lang of languages) {
+				const fullLang = lang.replace('-', '_'); // Normalize e.g. en-US → en_US
+				const lowerFullLang = fullLang.toLowerCase()
+
+				// Try full language code (e.g., en_US)
+				if (supportedLanguages.includes(lowerFullLang)) {
+					return lowerFullLang
+				}
+
+				// Try base language code (e.g., en)
+				const baseLang = lowerFullLang.split('_')[0]
+				if (supportedLanguages.includes(baseLang)) {
+					return baseLang
+				}
+			}
+
+			return 'en'; // Default to English
+		}
+
 
         function performRedirect() {
-            const from = getQueryParam('to');
-            const currentLocation = window.location;
-            const basePath = currentLocation.pathname.replace('/go.php/', '').replace('/go.php', '');
+            const from = getQueryParam('to')
+            const currentLocation = window.location
+            const basePath = currentLocation.pathname.replace('/go.php/', '').replace('/go.php', '')
             
-            let subPath;
+            let subPath
             
             if (mapping[from]) {
-				subPath = mapping[from];
+				subPath = mapping[from]
 			} else {
 				// If no mapping found, redirect to the parent directory
-				subPath = '/';
+				subPath = '/'
 			}
 
             // Handle user manual language detection
-            if (subPath.startsWith('/user_manual') && !subPath.includes('/user_manual/en')) {
-                const preferredLang = getPreferredLanguage();
-                const subPathParts = subPath.split('/');
+            if (subPath.startsWith('/user_manual')) {
+                const preferredLang = getPreferredLanguage()
+                const subPathParts = subPath.split('/')
                 
                 if (subPathParts.length >= 2 && subPathParts[1] === 'user_manual') {
-                    // Check if language is not already specified
-                    if (subPathParts.length === 2 || !subPathParts[2].match(/^[a-z]{2}$/)) {
-                        // Insert language after /user_manual/
-                        subPathParts.splice(2, 0, preferredLang);
-                        subPath = subPathParts.join('/');
-                    }
+					// Replace the language part with the preferred language
+					subPathParts[2] = preferredLang
+				}
+
+				// Join the parts back together
+				if (subPathParts.length > 2) {
+					subPath = subPathParts.join('/')
                 }
             }
 
-            const redirectUrl = `${currentLocation.protocol}//${currentLocation.host}${basePath}${subPath}`;
+            const redirectUrl = `${currentLocation.protocol}//${currentLocation.host}${basePath}${subPath}`
                        
             // Perform the redirect
-            window.location.href = redirectUrl;
+            window.location.href = redirectUrl
         }
 
         // Perform redirect when page loads
-        window.onload = performRedirect;
+        window.onload = performRedirect
     </script>
 </body>
 </html>
