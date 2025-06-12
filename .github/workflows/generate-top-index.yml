@@ -43,6 +43,6 @@ jobs:
         # Move the generated index.html and static files to the root of the gh-pages branch
         mv /tmp/index.html index.html
         mv /tmp/static/ static/
-        git add index.html
+        git add index.html static/
         git commit -m "Update index.html for documentation" || echo "No changes to commit"
         git push origin gh-pages
