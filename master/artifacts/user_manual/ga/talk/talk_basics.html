@@ -1,0 +1,448 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ga" data-content_root="../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="readthedocs-addons-api-version" content="1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bunúsacha Nextcloud Talk &mdash; Nextcloud latest User Manual latest documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=8ff6e0db" />
+      <link rel="stylesheet" type="text/css" href="../../_static/dark_mode_css/general.css?v=c0a7eb24" />
+      <link rel="stylesheet" type="text/css" href="../../_static/dark_mode_css/dark.css?v=70edf1c7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=d9c2735f"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/dark_mode_js/default_light.js?v=c2e647ce"></script>
+      <script src="../../_static/dark_mode_js/theme_switcher.js?v=358d3910"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <script src="../../_static/js/versions.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Gnéithe Casta Plé" href="advanced_features.html" />
+    <link rel="prev" title="Caint" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../contents.html">
+            
+              <img src="../../_static/logo-white.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="switch-menus">
+                <div class="version-switch"></div>
+                <div class="language-switch"></div>
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Nextcloud | leagan| réamhrá lámhleabhar úsáideora</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../webinterface.html">Comhéadan Gréasáin Nextcloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../files/index.html">Comhaid &amp; sioncronú</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../groupware/index.html">Earraí grúpa</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Caint</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Bunúsacha Nextcloud Talk</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#creating-a-chat">Comhrá a chruthú</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#view-all-open-conversations">Féach ar gach comhrá oscailte</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filter-your-conversations">Scag do chuid comhráite</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sharing-files-in-a-chat">Comhaid a roinnt i gcomhrá</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inserting-emoji">emoji á chur isteach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#editing-messages">Teachtaireachtaí á gcur in eagar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-markdown">Ag baint úsáide as Markdown</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setting-reminder-on-messages">Meabhrúchán á shocrú ar theachtaireachtaí</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#replying-to-messages-and-more">Ag freagairt teachtaireachtaí agus eile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#silent-messages">Teachtaireachtaí ciúine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#managing-a-conversation">Comhrá a bhainistiú</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#messages-expiration">Téann teachtaireachtaí in éag</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#starting-a-call">Ag tosú glao</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#starting-a-screen-share">Comhroinnt scáileáin a thosú</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#changing-view-in-a-call">Amharc a athrú i nglao</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="advanced_features.html">Gnéithe Casta Plé</a></li>
+<li class="toctree-l2"><a class="reference internal" href="join_a_call_or_chat_as_guest.html">Glac páirt i nglao nó comhrá mar aoi</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../desktop/index.html">Cliaint Deisce</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userpreferences.html">Ag socrú do shainroghanna</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../universal_access.html">Rochtain uilíoch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_2fa.html">Ag baint úsáide as fíordheimhniú dhá-fhachtóir</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session_management.html">Bainistigh brabhsálaithe agus gléasanna nasctha</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../external_storage/index.html">Stóráil Sheachtrach</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">Nextcloud latest User Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../contents.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Caint</a></li>
+      <li class="breadcrumb-item active">Bunúsacha Nextcloud Talk</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/nextcloud/documentation/edit/master/user_manual/talk/talk_basics.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="basics-of-nextcloud-talk">
+<h1>Bunúsacha Nextcloud Talk<a class="headerlink" href="#basics-of-nextcloud-talk" title="Link to this heading"></a></h1>
+<p>Ligeann Nextcloud Talk duit comhrá a dhéanamh agus glaonna físe a bheith agat ar do fhreastalaí féin.</p>
+<p>Tarlaíonn comhráite agus glaonna i gcomhráite. Is féidir leat aon líon comhrá a chruthú. Tá dhá chineál comhrá ann:</p>
+<ol class="arabic simple">
+<li><p><strong>Comhrá duine le duine.</strong> Seo áit a mbíonn comhrá príobháideach nó glaoigh agat le húsáideoir Talk eile. Ní féidir leat daoine eile a chur leis an gcomhrá seo nó é a roinnt le nasc. Tosaíonn tú comhrá díreach duine le duine trí úsáideoir eile a chuardach sa bharra cuardaigh agus ansin cliceáil ar a n-ainm.</p></li>
+<li><p><strong>Comhráite grúpa.</strong> Seachas an duine a chruthaigh an comhrá, is féidir le líon ar bith daoine a bheith i gcomhrá grúpa. Is féidir comhrá grúpa a roinnt go poiblí le nasc, ionas gur féidir le haoi-úsáideoirí seachtracha páirt a ghlacadh i nglao. Is féidir é a liostú freisin, ionas gur féidir le daoine eile ar do fhreastalaí Nextcloud páirt a ghlacadh sa chomhrá.</p></li>
+</ol>
+<section id="creating-a-chat">
+<h2>Comhrá a chruthú<a class="headerlink" href="#creating-a-chat" title="Link to this heading"></a></h2>
+<p>Is féidir leat comhrá díreach, duine le duine a chruthú trí ainm úsáideora, grúpa nó foirne a chuardach agus cliceáil air. I gcás úsáideoir amháin, cruthaítear comhrá láithreach agus is féidir leat do chomhrá a thosú. Le haghaidh grúpa nó ciorcal is féidir leat ainm agus socruithe a roghnú sula gcruthaíonn tú an comhrá agus na rannpháirtithe a chur leis.</p>
+<a class="reference internal image-reference" href="../../_images/chat-with-one-user.png"><img alt="../../_images/chat-with-one-user.png" src="../../_images/chat-with-one-user.png" style="width: 400px;" />
+</a>
+<p>Más mian leat comhrá grúpa saincheaptha a chruthú, cliceáil ar an gcnaipe in aice leis an réimse cuardaigh agus an cnaipe scagairí agus ansin ar <code class="docutils literal notranslate"><span class="pre">Cruthaigh</span> <span class="pre">comhrá</span> <span class="pre">nua</span></code>.</p>
+<a class="reference internal image-reference" href="../../_images/create-new-conversation.png"><img alt="../../_images/create-new-conversation.png" src="../../_images/create-new-conversation.png" style="width: 400px;" />
+</a>
+<p>Is féidir leat ansin ainm a phiocadh don chomhrá, cur síos a dhéanamh, agus avatar a shocrú dó (le grianghraf uaslódáilte nó emoji), agus roghnú ar cheart don chomhrá a bheith oscailte d’úsáideoirí seachtracha agus más féidir le húsáideoirí eile ar an bhfreastalaí a fheiceáil agus páirt a ghlacadh sa chomhrá.</p>
+<a class="reference internal image-reference" href="../../_images/creating-open-conversation.png"><img alt="../../_images/creating-open-conversation.png" src="../../_images/creating-open-conversation.png" style="width: 500px;" />
+</a>
+<p>Sa dara céim, gheobhaidh tú rannpháirtithe a chur leis agus cruthú an chomhrá a thabhairt chun críche.</p>
+<a class="reference internal image-reference" href="../../_images/add-participants.png"><img alt="../../_images/add-participants.png" src="../../_images/add-participants.png" style="width: 500px;" />
+</a>
+<p>Tar éis deimhnithe atreorófar thú chuig an gcomhrá nua agus is féidir leat tosú ag cumarsáid láithreach.</p>
+<a class="reference internal image-reference" href="../../_images/new-room.png"><img alt="../../_images/new-room.png" src="../../_images/new-room.png" style="width: 700px;" />
+</a>
+</section>
+<section id="view-all-open-conversations">
+<h2>Féach ar gach comhrá oscailte<a class="headerlink" href="#view-all-open-conversations" title="Link to this heading"></a></h2>
+<p>Is féidir leat féachaint ar na comhráite go léir is féidir leat a bheith páirteach iontu trí chliceáil ar an gcnaipe in aice leis an réimse cuardaigh agus an cnaipe scagairí agus ansin ar <code class="docutils literal notranslate"><span class="pre">Glac</span> <span class="pre">isteach</span> <span class="pre">i</span> <span class="pre">gcomhráite</span> <span class="pre">oscailte.</span></code></p>
+<a class="reference internal image-reference" href="../../_images/join-open-conversations.png"><img alt="../../_images/join-open-conversations.png" src="../../_images/join-open-conversations.png" style="width: 400px;" />
+</a>
+</section>
+<section id="filter-your-conversations">
+<h2>Scag do chuid comhráite<a class="headerlink" href="#filter-your-conversations" title="Link to this heading"></a></h2>
+<p>Is féidir leat do chomhráite a scagadh tríd an gcnaipe scagaire atá suite in aice leis an réimse cuardaigh. Tá dhá rogha ann le haghaidh scagadh: 1. Scag tagairtí neamhléite: Ligeann an rogha seo duit féachaint ar chomhráite grúpa le tráchtanna neamhléite nó comhráite duine ar dhuine neamhléite. 2. Scag teachtaireachtaí neamhléite: Ligeann an rogha seo duit féachaint ar gach teachtaireacht neamhléite i ngach comhrá ceangailte.</p>
+<a class="reference internal image-reference" href="../../_images/filters-menu.png"><img alt="../../_images/filters-menu.png" src="../../_images/filters-menu.png" style="width: 400px;" />
+</a>
+<p>Is féidir leat an scagaire a ghlanadh ansin ón roghchlár scagairí.</p>
+<a class="reference internal image-reference" href="../../_images/clear-filter.png"><img alt="../../_images/clear-filter.png" src="../../_images/clear-filter.png" style="width: 400px;" />
+</a>
+</section>
+<section id="sharing-files-in-a-chat">
+<h2>Comhaid a roinnt i gcomhrá<a class="headerlink" href="#sharing-files-in-a-chat" title="Link to this heading"></a></h2>
+<p>Is féidir leat comhaid a roinnt i gcomhrá ar 3 bhealach.</p>
+<p>Gcéad dul síos, is féidir leat a tharraingt go simplí agus iad a scaoileadh ar an comhrá.</p>
+<a class="reference internal image-reference" href="../../_images/drag-and-drop.png"><img alt="../../_images/drag-and-drop.png" src="../../_images/drag-and-drop.png" style="width: 600px;" />
+</a>
+<p>Ar an dara dul síos, is féidir leat comhad a roghnú ó do Nextcloud Files nó ó bhainisteoir comhad ach an páipéar beag a roghnú agus an áit ar mhaith leat an comhad a roghnú as.</p>
+<a class="reference internal image-reference" href="../../_images/share-files-in-chat.png"><img alt="../../_images/share-files-in-chat.png" src="../../_images/share-files-in-chat.png" style="width: 500px;" />
+</a>
+<a class="reference internal image-reference" href="../../_images/share-files-in-chat-selection.png"><img alt="../../_images/share-files-in-chat-selection.png" src="../../_images/share-files-in-chat-selection.png" style="width: 600px;" />
+</a>
+<p>Is féidir leat níos mó comhad a chur leis go dtí go bhfuil tú críochnaithe agus go gcinnfidh tú na comhaid a roinnt. Is féidir leat fotheideal téacs a chur le do chomhaid roinnte freisin, ag tabhairt cur síos gairid nó comhthéacs.</p>
+<a class="reference internal image-reference" href="../../_images/talk-upload-files.png"><img alt="../../_images/talk-upload-files.png" src="../../_images/talk-upload-files.png" style="width: 500px;" />
+</a>
+<p>Beidh gach úsáideoir in ann na comhaid a chliceáil chun iad a fheiceáil, a chur in eagar nó a íoslódáil, beag beann ar chuntas úsáideora a bheith acu. Roinnfear an comhad go huathoibríoch ag úsáideoirí a bhfuil cuntas acu agus roinnfear aoi-úsáideoirí seachtracha mar nasc poiblí iad.</p>
+<a class="reference internal image-reference" href="../../_images/editing-document-in-chat-room.png"><img alt="../../_images/editing-document-in-chat-room.png" src="../../_images/editing-document-in-chat-room.png" style="width: 600px;" />
+</a>
+</section>
+<section id="inserting-emoji">
+<h2>emoji á chur isteach<a class="headerlink" href="#inserting-emoji" title="Link to this heading"></a></h2>
+<p>Is féidir leat emoji a chur leis ag baint úsáide as an roghnóir ar thaobh na láimhe clé den réimse ionchuir téacs.</p>
+<a class="reference internal image-reference" href="../../_images/emoji-picker.png"><img alt="../../_images/emoji-picker.png" src="../../_images/emoji-picker.png" style="width: 400px;" />
+</a>
+</section>
+<section id="editing-messages">
+<h2>Teachtaireachtaí á gcur in eagar<a class="headerlink" href="#editing-messages" title="Link to this heading"></a></h2>
+<p>Is féidir leat teachtaireachtaí agus fotheidil a chur in eagar chun scaireanna a chomhdú suas le 6 huaire tar éis iad a sheoladh.</p>
+<a class="reference internal image-reference" href="../../_images/message-editing.png"><img alt="../../_images/message-editing.png" src="../../_images/message-editing.png" style="width: 600px;" />
+</a>
+</section>
+<section id="using-markdown">
+<h2>Ag baint úsáide as Markdown<a class="headerlink" href="#using-markdown" title="Link to this heading"></a></h2>
+<p>Is féidir leat do theachtaireachtaí a fheabhsú le tacaíocht chomhréire marcála. Féach an liosta le haghaidh úsáide:</p>
+<p><strong>Ceannteidil agus roinnteoirí</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Heading 1
+## Heading 2
+### Heading 3
+#### Heading 4
+##### Heading 5
+###### Heading 6
+
+Heading
+===
+Normal text
+***
+Normal text
+</pre></div>
+</div>
+<p><strong>Maisiúcháin inlíne</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>**bold text** __bold text__
+*italicized text* _italicized text_
+`inline code` ``inline code``
+```
+.code-block {
+  display: pre;
+}
+```
+</pre></div>
+</div>
+<p><strong>Liosta</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1. Ordered list
+2. Ordered list
+
+* Unordered list
+- Unordered list
++ Unordered list
+</pre></div>
+</div>
+<p><strong>Sleachta</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; blockquote
+second line of blockquote
+</pre></div>
+</div>
+<p><strong>Tascliostaí</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- [ ] task to be done
+- [x] completed task
+</pre></div>
+</div>
+<p><strong>Táblaí</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Column A | Column B
+-- | --
+Data A | Data B
+</pre></div>
+</div>
+</section>
+<section id="setting-reminder-on-messages">
+<h2>Meabhrúchán á shocrú ar theachtaireachtaí<a class="headerlink" href="#setting-reminder-on-messages" title="Link to this heading"></a></h2>
+<p>Is féidir leat meabhrúcháin a shocrú ar theachtaireachtaí ar leith. Má tá teachtaireacht thábhachtach ar mhaith leat a chur ar an eolas faoi níos déanaí, níl le déanamh ach ainliú uirthi agus cliceáil ar an deilbhín meabhrúcháin.</p>
+<a class="reference internal image-reference" href="../../_images/set-message-reminder.png"><img alt="../../_images/set-message-reminder.png" src="../../_images/set-message-reminder.png" style="width: 400px;" />
+</a>
+<p>Sa bhfo-roghchlár, is féidir leat am cuí a roghnú chun fógra a fháil níos déanaí.</p>
+<a class="reference internal image-reference" href="../../_images/configure-message-reminder.png"><img alt="../../_images/configure-message-reminder.png" src="../../_images/configure-message-reminder.png" style="width: 400px;" />
+</a>
+</section>
+<section id="replying-to-messages-and-more">
+<h2>Ag freagairt teachtaireachtaí agus eile<a class="headerlink" href="#replying-to-messages-and-more" title="Link to this heading"></a></h2>
+<p>Is féidir leat freagra a thabhairt ar theachtaireacht leis an tsaighead a thaispeánfar nuair a aistríonn tú teachtaireacht.</p>
+<a class="reference internal image-reference" href="../../_images/reply.png"><img alt="../../_images/reply.png" src="../../_images/reply.png" style="width: 600px;" />
+</a>
+<p>Sa roghchlár <code class="docutils literal notranslate"><span class="pre">...</span></code> is féidir leat freagra a thabhairt go príobháideach freisin. Osclóidh sé seo comhrá duine le duine.</p>
+<a class="reference internal image-reference" href="../../_images/chat-message-menu.png"><img alt="../../_images/chat-message-menu.png" src="../../_images/chat-message-menu.png" style="width: 600px;" />
+</a>
+<p>Anseo is féidir leat nasc díreach a chruthú leis an teachtaireacht nó é a mharcáil gan léamh ionas go scrollóidh tú ar ais ansin an chéad uair eile a rachaidh tú isteach sa chomhrá. Nuair is comhad é, is féidir leat an comhad a fheiceáil i Comhaid.</p>
+</section>
+<section id="silent-messages">
+<h2>Teachtaireachtaí ciúine<a class="headerlink" href="#silent-messages" title="Link to this heading"></a></h2>
+<p>Mura bhfuil tú ag iarraidh cur isteach ar aon duine i lár na hoíche, tá modh tostach ann chun comhrá a dhéanamh. Cé go bhfuil sé cumasaithe, ní bhfaighidh rannpháirtithe eile fógraí ó do theachtaireachtaí.</p>
+<a class="reference internal image-reference" href="../../_images/message-silent.png"><img alt="../../_images/message-silent.png" src="../../_images/message-silent.png" style="width: 600px;" />
+</a>
+</section>
+<section id="managing-a-conversation">
+<h2>Comhrá a bhainistiú<a class="headerlink" href="#managing-a-conversation" title="Link to this heading"></a></h2>
+<p>Is modhnóir tú i gcónaí i do chomhrá nua. I liosta na rannpháirtithe is féidir leat rannpháirtithe eile a chur chun cinn go modhnóirí trí úsáid a bhaint as an roghchlár <code class="docutils literal notranslate"><span class="pre">...</span></code> ar thaobh na láimhe deise dá n-ainm úsáideora, ceadanna saincheaptha a shannadh dóibh nó iad a bhaint den chomhrá.</p>
+<p>Cuirfidh athrú ceadanna úsáideora a chuaigh isteach i gcomhrá poiblí leis an gcomhrá go buan iad freisin.</p>
+<a class="reference internal image-reference" href="../../_images/participant-menu.png"><img alt="../../_images/participant-menu.png" src="../../_images/participant-menu.png" style="width: 400px;" />
+</a>
+<p>Is féidir le modhnóirí an comhrá a chumrú. Roghnaigh <code class="docutils literal notranslate"><span class="pre">Socruithe</span> <span class="pre">comhrá</span></code> ón roghchlár <code class="docutils literal notranslate"><span class="pre">…</span></code> den chomhrá ar an mbarr chun rochtain a fháil ar na socruithe.</p>
+<a class="reference internal image-reference" href="../../_images/open-settings.png"><img alt="../../_images/open-settings.png" src="../../_images/open-settings.png" style="width: 400px;" />
+</a>
+<p>Anseo is féidir leat an tuairisc a chumrú, rochtain aoi, má tá an comhrá le feiceáil ag daoine eile ar an bhfreastalaí agus níos mó.</p>
+<a class="reference internal image-reference" href="../../_images/conversation-settings-dialog.png"><img alt="../../_images/conversation-settings-dialog.png" src="../../_images/conversation-settings-dialog.png" style="width: 600px;" />
+</a>
+</section>
+<section id="messages-expiration">
+<h2>Téann teachtaireachtaí in éag<a class="headerlink" href="#messages-expiration" title="Link to this heading"></a></h2>
+<p>Is féidir le modhnóir dul in éag teachtaireachta a chumrú faoi na <code class="docutils literal notranslate"><span class="pre">Socruithe</span> <span class="pre">comhrá</span></code> laistigh den rannán <code class="docutils literal notranslate"><span class="pre">Modhnóireacht</span></code>. Nuair a shroicheann teachtaireacht a am éaga, baintear go huathoibríoch í den chomhrá. Is iad na tréimhsí éaga atá ar fáil ná 1 uair, 8 n-uaire, 1 lá, 1 seachtain, 4 seachtaine, nó riamh (is é sin an socrú réamhshocraithe).</p>
+<a class="reference internal image-reference" href="../../_images/messages-expiration.png"><img alt="../../_images/messages-expiration.png" src="../../_images/messages-expiration.png" style="width: 500px;" />
+</a>
+</section>
+<section id="starting-a-call">
+<h2>Ag tosú glao<a class="headerlink" href="#starting-a-call" title="Link to this heading"></a></h2>
+<p>Nuair a bhíonn tú i gcomhrá, is féidir leat glaoch a thosú am ar bith leis an gcnaipe <code class="docutils literal notranslate"><span class="pre">Tosaigh</span> <span class="pre">an</span> <span class="pre">glaoch</span></code>. Cuirfear rannpháirtithe eile ar an eolas agus is féidir leo páirt a ghlacadh sa ghlao.</p>
+<a class="reference internal image-reference" href="../../_images/device-settings-before-call.png"><img alt="../../_images/device-settings-before-call.png" src="../../_images/device-settings-before-call.png" style="width: 400px;" />
+</a>
+<p>Má tá glao tosaithe ag duine éigin eile cheana féin, athrófar an cnaipe ina chnaipe glas <code class="docutils literal notranslate"><span class="pre">Join</span> <span class="pre">Call</span></code>.</p>
+<a class="reference internal image-reference" href="../../_images/join-call.png"><img alt="../../_images/join-call.png" src="../../_images/join-call.png" style="width: 600px;" />
+</a>
+<p>Le linn glao, is féidir leat do mhicreafón a bhalbhú agus do fhíseán a dhíchumasú leis na cnaipí ar thaobh na láimhe deise den bharra barr, nó na haicearraí <code class="docutils literal notranslate"><span class="pre">M</span></code> a úsáid chun fuaim a bhalbhú agus `` V`` chun físeán a dhíchumasú. Is féidir leat an barra spáis a úsáid freisin chun balbhú a scoránú. Nuair a bhíonn balbhú ort, díbhalbhófar tú má bhrúnn tú spás ionas gur féidir leat labhairt go dtí go scaoilfidh tú an spásbharra. Mura bhfuil tú balbhaithe, balbhóidh spás brú tú go dtí go scaoilfidh tú as.</p>
+<p>Is féidir leat do fhíseán a cheilt (úsáideach le linn comhroinnte scáileáin) leis an tsaighead bheag díreach os cionn an tsrutha físeáin. Beir leat é leis an tsaighead bheag arís.</p>
+<p>Is féidir leat rochtain a fháil ar do shocruithe agus ceamara gréasáin, micreafón agus socruithe eile a roghnú sa roghchlár <code class="docutils literal notranslate"><span class="pre">…</span></code> sa bharra barr.</p>
+<a class="reference internal image-reference" href="../../_images/media-settings.png"><img alt="../../_images/media-settings.png" src="../../_images/media-settings.png" style="width: 300px;" />
+</a>
+<p>Ó socruithe meáin dialóg, is féidir leat athrú freisin ar an cúlra do físeáin.</p>
+<a class="reference internal image-reference" href="../../_images/background-settings-in-call.png"><img alt="../../_images/background-settings-in-call.png" src="../../_images/background-settings-in-call.png" style="width: 400px;" />
+</a>
+<p>Is féidir leat socruithe eile a athrú sa dialóg <code class="docutils literal notranslate"><span class="pre">Labhair</span> <span class="pre">socruithe</span></code>.</p>
+<a class="reference internal image-reference" href="../../_images/talk-settings.png"><img alt="../../_images/talk-settings.png" src="../../_images/talk-settings.png" style="width: 600px;" />
+</a>
+</section>
+<section id="starting-a-screen-share">
+<h2>Comhroinnt scáileáin a thosú<a class="headerlink" href="#starting-a-screen-share" title="Link to this heading"></a></h2>
+<p>Is féidir leat cliceáil ar an deilbhín monatóireachta ar do shruth físeáin chun do scáileán a roinnt. Ag brath ar do bhrabhsálaí, gheobhaidh tú an rogha monatóir, fuinneog feidhmchláir nó cluaisín brabhsálaí amháin a roinnt. Má tá físeán ó do cheamara ar fáil freisin, feicfidh rannpháirtithe eile é i radharc beag láithreora in aice leis an sciar scáileáin.</p>
+<a class="reference internal image-reference" href="../../_images/share-screen-with-camera.png"><img alt="../../_images/share-screen-with-camera.png" src="../../_images/share-screen-with-camera.png" style="width: 700px;" />
+</a>
+</section>
+<section id="changing-view-in-a-call">
+<h2>Amharc a athrú i nglao<a class="headerlink" href="#changing-view-in-a-call" title="Link to this heading"></a></h2>
+<p>Is féidir leat an t-amharc a athrú i nglao leis an deilbhín beag ceithre bhloc ar an mbarr ar dheis idir radharc bolscaireachta agus radharc greille. Taispeánfaidh an radharc greille gach duine chomh mór agus mura n-oireann na daoine ar an scáileán, beidh cnaipí le feiceáil ar chlé agus ar dheis a ligeann duit nascleanúint a dhéanamh.</p>
+<a class="reference internal image-reference" href="../../_images/talk-grid-view.png"><img alt="../../_images/talk-grid-view.png" src="../../_images/talk-grid-view.png" style="width: 700px;" />
+</a>
+<p>Taispeánann an radharc spreagtha an cainteoir mór agus cinn eile i ndiaidh a chéile thíos. Mura n-oireann na daoine ar an scáileán, beidh cnaipí le feiceáil ar chlé agus ar dheis a ligeann duit nascleanúint a dhéanamh.</p>
+<a class="reference internal image-reference" href="../../_images/talk-promoted-view.png"><img alt="../../_images/talk-promoted-view.png" src="../../_images/talk-promoted-view.png" style="width: 700px;" />
+</a>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Caint" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="advanced_features.html" class="btn btn-neutral float-right" title="Gnéithe Casta Plé" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025 Nextcloud GmbH.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+<dd><a href="/server/latest/user_manual/af/">af</a></dd>
+<dd><a href="/server/latest/user_manual/ar/">ar</a></dd>
+<dd><a href="/server/latest/user_manual/br/">br</a></dd>
+<dd><a href="/server/latest/user_manual/ca/">ca</a></dd>
+<dd><a href="/server/latest/user_manual/cs/">cs</a></dd>
+<dd><a href="/server/latest/user_manual/da/">da</a></dd>
+<dd><a href="/server/latest/user_manual/de/">de</a></dd>
+<dd><a href="/server/latest/user_manual/el/">el</a></dd>
+<dd><a href="/server/latest/user_manual/el_GR/">el_GR</a></dd>
+<dd><a href="/server/latest/user_manual/en/">en</a></dd>
+<dd><a href="/server/latest/user_manual/eo/">eo</a></dd>
+<dd><a href="/server/latest/user_manual/es/">es</a></dd>
+<dd><a href="/server/latest/user_manual/eu/">eu</a></dd>
+<dd><a href="/server/latest/user_manual/fi_FI/">fi_FI</a></dd>
+<dd><a href="/server/latest/user_manual/fr/">fr</a></dd>
+<dd><a href="/server/latest/user_manual/ga/">ga</a></dd>
+<dd><a href="/server/latest/user_manual/gl/">gl</a></dd>
+<dd><a href="/server/latest/user_manual/hr/">hr</a></dd>
+<dd><a href="/server/latest/user_manual/hu/">hu</a></dd>
+<dd><a href="/server/latest/user_manual/hu_HU/">hu_HU</a></dd>
+<dd><a href="/server/latest/user_manual/id/">id</a></dd>
+<dd><a href="/server/latest/user_manual/it/">it</a></dd>
+<dd><a href="/server/latest/user_manual/ja_JP/">ja_JP</a></dd>
+<dd><a href="/server/latest/user_manual/ko/">ko</a></dd>
+<dd><a href="/server/latest/user_manual/mn/">mn</a></dd>
+<dd><a href="/server/latest/user_manual/nb_NO/">nb_NO</a></dd>
+<dd><a href="/server/latest/user_manual/nl/">nl</a></dd>
+<dd><a href="/server/latest/user_manual/nn/">nn</a></dd>
+<dd><a href="/server/latest/user_manual/pl/">pl</a></dd>
+<dd><a href="/server/latest/user_manual/pt_BR/">pt_BR</a></dd>
+<dd><a href="/server/latest/user_manual/pt_PT/">pt_PT</a></dd>
+<dd><a href="/server/latest/user_manual/ro/">ro</a></dd>
+<dd><a href="/server/latest/user_manual/ru/">ru</a></dd>
+<dd><a href="/server/latest/user_manual/si/">si</a></dd>
+<dd><a href="/server/latest/user_manual/sk_SK/">sk_SK</a></dd>
+<dd><a href="/server/latest/user_manual/sq/">sq</a></dd>
+<dd><a href="/server/latest/user_manual/sr/">sr</a></dd>
+<dd><a href="/server/latest/user_manual/sv/">sv</a></dd>
+<dd><a href="/server/latest/user_manual/ta/">ta</a></dd>
+<dd><a href="/server/latest/user_manual/th/">th</a></dd>
+<dd><a href="/server/latest/user_manual/tr/">tr</a></dd>
+<dd><a href="/server/latest/user_manual/uk/">uk</a></dd>
+<dd><a href="/server/latest/user_manual/uz/">uz</a></dd>
+<dd><a href="/server/latest/user_manual/vi/">vi</a></dd>
+<dd><a href="/server/latest/user_manual/zh_CN/">zh_CN</a></dd>
+<dd><a href="/server/latest/user_manual/zh_HK/">zh_HK</a></dd>
+<dd><a href="/server/latest/user_manual/zh_TW/">zh_TW</a></dd>
+          <!--Here goes the Langs-->
+      </dl>
+    </div>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Leaganacha</dt>
+        
+          <dd><a href="https://docs.nextcloud.com/server/29/user_manual">29</a></dd>
+        
+          <dd><a href="https://docs.nextcloud.com/server/30/user_manual">30</a></dd>
+        
+          <dd><a href="https://docs.nextcloud.com/server/31/user_manual">31</a></dd>
+        
+          <dd><a href="https://docs.nextcloud.com/server/stable/user_manual">stable</a></dd>
+        
+          <dd><a href="https://docs.nextcloud.com/server/latest/user_manual">latest</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Íoslódálacha</dt>
+        
+      </dl>
+      <dl>
+        
+        <dt>Ar Léigh na Docs</dt>
+          <dd>
+            <a href="///projects//?fromdocs=">Tionscadal Baile</a>
+          </dd>
+          <dd>
+            <a href="///builds//?fromdocs=">Tógann</a>
+          </dd>
+      </dl>
+    </div>
+  </div>
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
