@@ -79,14 +79,30 @@ jobs:
       with:
         path: artifacts/
 
-    - name: Get branch name
+    - name: Get branch name and find latest stable
       id: branch
       run: |
-        if [ "${{ github.event_name }}" = "pull_request" ]; then
-          echo "branch_name=pr-${{ github.event.pull_request.number }}" >> $GITHUB_OUTPUT
-        else
-          echo "branch_name=${GITHUB_REF#refs/heads/}" >> $GITHUB_OUTPUT
-        fi
+        current_branch="${GITHUB_REF#refs/heads/}"
+        
+        # Find the highest numbered stable branch
+        highest_stable=$(git branch -r | grep -E 'origin/stable[0-9]+' | sed 's/.*stable//' | sort -n | tail -1)
+        highest_stable_branch="stable${highest_stable}"
+        
+        echo "Current branch: $current_branch"
+        echo "Highest stable branch found: $highest_stable_branch"
+        
+        # Map actual branch names to deployment folder names
+        case "$current_branch" in
+          "master")
+            echo "branch_name=latest" >> $GITHUB_OUTPUT
+            ;;
+          "$highest_stable_branch")
+            echo "branch_name=stable" >> $GITHUB_OUTPUT
+            ;;
+          *)
+            echo "branch_name=$current_branch" >> $GITHUB_OUTPUT
+            ;;
+        esac
 
     - name: Merge documentation
       run: |
