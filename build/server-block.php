@@ -19,11 +19,11 @@ function generate_section(string $version, int $index): string {
 			<h2>Nextcloud $version<a class="headerlink" href="#nextcloud-$label" title="Permalink to this headline">¶</a></h2>
 			$note
 			<ul class="simple">
-			<li><a class="reference external" href="https://docs.nextcloud.com/server/$version/user_manual/">User Manual</a>
-				(<a class="reference external" href="https://docs.nextcloud.com/server/$version/Nextcloud_User_Manual.pdf">Download PDF</a>)</li>
-			<li><a class="reference external" href="https://docs.nextcloud.com/server/$version/admin_manual/">Administration Manual</a>
-				(<a class="reference external" href="https://docs.nextcloud.com/server/$version/Nextcloud_Server_Administration_Manual.pdf">Download PDF</a>)</li>
-			<li><a class="reference external" href="https://docs.nextcloud.com/server/$version/developer_manual/">Developer Manual</a></li>
+				<li><a class="reference external" href="https://skjnldsv.github.io/documentation/$label/user_manual/">User Manual</a>
+					(<a class="reference external" href="https://skjnldsv.github.io/documentation/$label/Nextcloud_User_Manual.pdf">Download PDF</a>)</li>
+				<li><a class="reference external" href="https://skjnldsv.github.io/documentation/$label/admin_manual/">Administration Manual</a>
+					(<a class="reference external" href="https://skjnldsv.github.io/documentation/$label/Nextcloud_Server_Administration_Manual.pdf">Download PDF</a>)</li>
+				<li><a class="reference external" href="https://skjnldsv.github.io/documentation/$label/developer_manual/">Developer Manual</a></li>
 			</ul>
 		</div>
 HTML;
