@@ -46,11 +46,8 @@ jobs:
     - name: Build using Makefile
       run: cd ${{ matrix.manual.directory }} && make ${{ matrix.manual.make_target }}
 
-    - name: Pack the results in local tar file
-      run: tar czf /tmp/documentation.tar.gz -C ${{ matrix.manual.directory }}/${{ matrix.manual.build_path }} .
-
     - name: Upload static documentation
-      uses: actions/upload-artifact@v4.6.2
+      uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
       with:
         name: ${{ matrix.manual.name }}
-        path: "/tmp/documentation.tar.gz"
+        path: ${{ matrix.manual.directory }}/${{ matrix.manual.build_path }}
