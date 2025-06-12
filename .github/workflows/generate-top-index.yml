@@ -45,5 +45,5 @@ jobs:
         mv /tmp/index.html index.html
         mv /tmp/static/ static/
         git add index.html static/
-        git commit -m "Update index.html for documentation" || echo "No changes to commit"
+        git commit -m "chore: update index.html for documentation" || echo "No changes to commit"
         git push origin gh-pages
