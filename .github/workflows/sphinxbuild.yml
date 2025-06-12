@@ -92,20 +92,21 @@ jobs:
         # List artifacts
         ls -la artifacts/*/
 
-        # Create the documentation directory structure if it doesn't exist
+        # Cleanup old documentation
+        rm -rf ${{ steps.branch.outputs.branch_name }}
         mkdir -p ${{ steps.branch.outputs.branch_name }}
 
         # Copy all built documentation
-        for artifact in artifacts/*/; do
+        for artifact in artifacts/; do
           if [ -d "$artifact" ]; then
-            cp -r "$artifact"/* ./
+            cp -r "$artifact/" ${{ steps.branch.outputs.branch_name }}
           fi
         done
 
-    # - name: Commit and push to gh-pages
-    #   run: |
-    #     git config --local user.email "action@github.com"
-    #     git config --local user.name "GitHub Action"
-    #     git add ${{ steps.branch.outputs.branch_name }}
-    #     git diff --staged --quiet || git commit -m "chore: deploy documentation for ${{ steps.branch.outputs.branch_name }}"
-    #     git push origin gh-pages
+    - name: Commit and push to gh-pages
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add ${{ steps.branch.outputs.branch_name }}
+        git diff --staged --quiet || git commit -m "chore: deploy documentation for ${{ steps.branch.outputs.branch_name }}"
+        git push origin gh-pages
