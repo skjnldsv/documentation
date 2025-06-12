@@ -15,17 +15,17 @@ jobs:
     strategy:
       matrix:
         manual:
-          - name: "user_manual"
-            directory: "user_manual"
-            make_target: "html"
-            build_path: "_build/html"
-            publish: true
+          # - name: "user_manual"
+          #   directory: "user_manual"
+          #   make_target: "html"
+          #   build_path: "_build/html"
+          #   publish: true
             
-          - name: "user_manual-en"
-            directory: "user_manual"
-            make_target: "html-lang-en"
-            build_path: "_build/html"
-            publish: false
+          # - name: "user_manual-en"
+          #   directory: "user_manual"
+          #   make_target: "html-lang-en"
+          #   build_path: "_build/html"
+          #   publish: false
             
           - name: "developer_manual"
             directory: "developer_manual"
@@ -48,8 +48,19 @@ jobs:
     - name: Install pip dependencies
       run: pip install -r requirements.txt
 
-    - name: Build using Makefile
+    - name: Build html documentation
       run: cd ${{ matrix.manual.directory }} && make ${{ matrix.manual.make_target }}
+
+    - name: Build pdf documentation
+      run: |
+        cd ${{ matrix.manual.directory }}
+        # Check if make pdf command exists
+        if grep -q "^pdf:" Makefile; then
+          make pdf
+          cp _build/pdf/*.pdf ${{ matrix.manual.directory }}/${{ matrix.manual.build_path }}/
+        else
+          echo "No PDF build target found, skipping PDF build."
+        fi
 
     - name: Upload static documentation
       uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
