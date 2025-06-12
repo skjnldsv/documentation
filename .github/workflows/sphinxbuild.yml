@@ -89,7 +89,7 @@ jobs:
         
         echo "Current branch: $current_branch"
         echo "Highest stable branch found: $highest_stable_branch"
-        
+
         # Map actual branch names to deployment folder names
         case "$current_branch" in
           "master")
@@ -99,6 +99,8 @@ jobs:
             echo "branch_name=stable" >> $GITHUB_OUTPUT
             ;;
           *)
+            # Remove stable prefix for current branch
+            current_branch="${current_branch#stable}"
             echo "branch_name=$current_branch" >> $GITHUB_OUTPUT
             ;;
         esac
@@ -118,6 +120,12 @@ jobs:
             cp -r "$artifact/" ${{ steps.branch.outputs.branch_name }}
           fi
         done
+    
+    - name: Add go.php redirect
+      run: |
+        mkdir -p ${{ steps.branch.outputs.branch_name }}/go.php
+        git checkout ${{github.sha}} -- go.php/index.html
+        mv go.php/index.html ${{ steps.branch.outputs.branch_name }}/go.php/index.html
 
     - name: Commit and push to gh-pages
       run: |
