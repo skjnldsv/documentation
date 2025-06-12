@@ -15,18 +15,18 @@ jobs:
     strategy:
       matrix:
         manual:
-          # - name: "user_manual"
-          #   directory: "user_manual"
-          #   make_target: "html"
-          #   build_path: "_build/html"
-          #   build_pdf_path: "_build/pdf"
-          #   publish: true
+          - name: "user_manual"
+            directory: "user_manual"
+            make_target: "html"
+            build_path: "_build/html"
+            build_pdf_path: "_build/pdf"
+            publish: true
             
-          # - name: "user_manual-en"
-          #   directory: "user_manual"
-          #   make_target: "html-lang-en"
-          #   build_path: "_build/html"
-          #   publish: false
+          - name: "user_manual-en"
+            directory: "user_manual"
+            make_target: "html-lang-en"
+            build_path: "_build/html"
+            publish: false
             
           - name: "developer_manual"
             directory: "developer_manual"
