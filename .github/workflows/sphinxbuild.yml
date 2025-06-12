@@ -33,6 +33,7 @@ jobs:
             directory: "user_manual"
             make_target: "html-lang-en"
             build_path: "_build/html"
+            publish: false
             
           - name: "developer_manual"
             directory: "developer_manual"
@@ -64,6 +65,7 @@ jobs:
         path: ${{ matrix.manual.directory }}/${{ matrix.manual.build_path }}
 
     - name: Upload static documentation as Github Pages
+      if: ${{ matrix.manual.publish != false }}
       id: deployment
       uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
       with:
