@@ -46,8 +46,6 @@ jobs:
       run: cd ${{ matrix.manual.directory }} && make ${{ matrix.manual.make_target }}
 
     - name: Pack the results in local tar file
-      if: matrix.manual.artifact_name != ''
-      shell: bash
       run: tar czf /tmp/documentation.tar.gz -C ${{ matrix.manual.directory }}/${{ matrix.manual.build_path }} .
 
     - name: Upload static documentation
