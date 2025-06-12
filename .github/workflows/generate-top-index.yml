@@ -41,6 +41,7 @@ jobs:
     - name: Commit and push changes
       run: |
         # Move the generated index.html and static files to the root of the gh-pages branch
+        rm -rf index.html static/
         mv /tmp/index.html index.html
         mv /tmp/static/ static/
         git add index.html static/
