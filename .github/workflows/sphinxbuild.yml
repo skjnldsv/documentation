@@ -9,6 +9,7 @@ on:
 
 jobs:
   build:
+    name: Build ${{ matrix.manual.name }}
     runs-on: ubuntu-latest
 
     strategy:
