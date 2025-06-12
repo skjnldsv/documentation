@@ -1,4 +1,4 @@
-name: "Generate top index html"
+name: "Build documentation index"
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    name: Generate top index for documentation
+    name: Build index.html
     runs-on: ubuntu-latest
 
     steps:
