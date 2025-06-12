@@ -28,6 +28,7 @@ jobs:
             directory: "user_manual"
             make_target: "html"
             build_path: "_build/html"
+            publish: true
             
           - name: "user_manual-en"
             directory: "user_manual"
@@ -39,11 +40,13 @@ jobs:
             directory: "developer_manual"
             make_target: "html"
             build_path: "_build/html/com"
+            publish: true
             
           - name: "admin_manual"
             directory: "admin_manual"
             make_target: "html"
             build_path: "_build/html/com"
+            publish: true
             
     steps:
     - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
@@ -64,7 +67,7 @@ jobs:
         path: ${{ matrix.manual.directory }}/${{ matrix.manual.build_path }}
 
     - name: Upload static documentation as Github Pages
-      if: ${{ matrix.manual.publish != false }}
+      if: ${{ matrix.manual.publish }}
       id: deployment
       uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
       with:
