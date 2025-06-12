@@ -70,6 +70,7 @@ jobs:
         path: ${{ matrix.manual.directory }}/${{ matrix.manual.build_path }}
 
   deploy:
+    name: Deploy pages
     needs: build
     runs-on: ubuntu-latest
     if: github.event_name == 'push'  # Only deploy on push, not PR
