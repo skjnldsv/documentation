@@ -98,7 +98,7 @@ jobs:
         mkdir -p ${{ steps.branch.outputs.branch_name }}
 
         # Copy all built documentation
-        for artifact in artifacts/; do
+        for artifact in artifacts/*; do
           if [ -d "$artifact" ]; then
             cp -r "$artifact/" ${{ steps.branch.outputs.branch_name }}
           fi
