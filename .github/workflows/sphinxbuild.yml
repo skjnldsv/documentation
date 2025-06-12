@@ -70,6 +70,7 @@ jobs:
         path: ${{ matrix.manual.directory }}/${{ matrix.manual.build_path }}
 
   deploy:
+    name: Deploy pages
     needs: build
     runs-on: ubuntu-latest
     if: github.event_name == 'push'  # Only deploy on push, not PR
@@ -138,7 +139,7 @@ jobs:
     - name: Add go.php redirect
       run: |
         mkdir -p ${{ steps.branch.outputs.branch_name }}/go.php
-        git checkout ${{github.sha}} -- go.php/index.html
+        git checkout origin/${{ github.event.repository.default_branch }} -- go.php/index.html
         mv go.php/index.html ${{ steps.branch.outputs.branch_name }}/go.php/index.html
 
     - name: Commit and push to gh-pages
