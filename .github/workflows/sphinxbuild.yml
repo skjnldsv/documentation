@@ -18,10 +18,16 @@ jobs:
           - name: "user_manual"
             directory: "user_manual"
             make_target: "html"
-            build_path: "_build/html/com"
+            build_path: "_build/html"
             build_pdf_path: "_build/pdf"
             publish: true
-
+            
+          - name: "user_manual-en"
+            directory: "user_manual"
+            make_target: "html-lang-en"
+            build_path: "_build/html"
+            publish: false
+            
           - name: "developer_manual"
             directory: "developer_manual"
             make_target: "html"
@@ -118,28 +124,50 @@ jobs:
 
         # Cleanup old documentation
         rm -rf ${{ steps.branch.outputs.branch_name }}
-        mkdir -p ${{ steps.branch.outputs.branch_name }}
+        rm -rf server/${{ steps.branch.outputs.branch_name }}
+        mkdir -p server/${{ steps.branch.outputs.branch_name }}
 
         # Copy all built documentation
         for artifact in artifacts/*; do
           if [ -d "$artifact" ]; then
-            cp -r "$artifact/" ${{ steps.branch.outputs.branch_name }}
+            cp -r "$artifact/" server/${{ steps.branch.outputs.branch_name }}
           fi
         done
 
         # Move pdf files to the root of the branch_name
-        mv ${{ steps.branch.outputs.branch_name }}/*/*.pdf ${{ steps.branch.outputs.branch_name }}/ || true
+        mv server/${{ steps.branch.outputs.branch_name }}/*/*.pdf server/${{ steps.branch.outputs.branch_name }}/ || true
+
+        # Cleanup
+        find . -type d -empty -delete
+        rm -rf artifacts
     
     - name: Add go.php redirect
       run: |
-        mkdir -p ${{ steps.branch.outputs.branch_name }}/go.php
         git checkout origin/${{ github.event.repository.default_branch }} -- go.php/index.html
-        mv go.php/index.html ${{ steps.branch.outputs.branch_name }}/go.php/index.html
+        mkdir -p server/${{ steps.branch.outputs.branch_name }}/go.php
+        mv go.php/index.html server/${{ steps.branch.outputs.branch_name }}/go.php/index.html
 
     - name: Commit and push to gh-pages
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add ${{ steps.branch.outputs.branch_name }}
+        git add .
         git diff --staged --quiet || git commit -m "chore: deploy documentation for ${{ steps.branch.outputs.branch_name }}"
+        # Ensure we are up to date with the remote gh-pages branch
+        git pull --rebase origin gh-pages
         git push origin gh-pages
+
+  summary:
+    needs: build
+    runs-on: ubuntu-latest-low
+    if: always()
+    
+    permissions:
+      contents: read
+
+    name: build-deploy-summary
+
+    steps:
+      # Only check if the build was successful
+      - name: Summary status
+        run: if ${{ needs.build.result != 'success' }}; then exit 1; fi
