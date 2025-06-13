@@ -9,7 +9,7 @@ function generate_section(string $version, int $index): string {
 		$label = 'stable';
 		$note = '<p>This documents the <em>latest stable</em> version of Nextcloud.</p>';
 	} else if ($index === 2) {
-		$note = '<p>This documents the <em>previous stable</em> version of Nextcloud.</p>';
+		$note = '<p>This documents the <em>previous stable</em> (still supported) version of Nextcloud.</p>';
 	} else if ($index === 3) {
 		$note = '<p>This documents the <em>last supported stable</em> version of Nextcloud.</p>';
 	}
