@@ -123,6 +123,7 @@ jobs:
         ls -la artifacts/*/
 
         # Cleanup old documentation
+        rm -rf ${{ steps.branch.outputs.branch_name }}
         rm -rf server/${{ steps.branch.outputs.branch_name }}
         mkdir -p server/${{ steps.branch.outputs.branch_name }}
 
@@ -138,8 +139,8 @@ jobs:
     
     - name: Add go.php redirect
       run: |
-        mkdir -p ${{ steps.branch.outputs.branch_name }}/go.php
         git checkout origin/${{ github.event.repository.default_branch }} -- go.php/index.html
+        mkdir -p server/${{ steps.branch.outputs.branch_name }}/go.php
         mv go.php/index.html server/${{ steps.branch.outputs.branch_name }}/go.php/index.html
 
     - name: Commit and push to gh-pages
