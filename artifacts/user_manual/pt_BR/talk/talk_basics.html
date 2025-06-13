@@ -1,0 +1,449 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="pt-BR" data-content_root="../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="readthedocs-addons-api-version" content="1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Noções Básicas de Nextcloud Talk &mdash; Documentação Nextcloud latest User Manual latest</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=8ff6e0db" />
+      <link rel="stylesheet" type="text/css" href="../../_static/dark_mode_css/general.css?v=c0a7eb24" />
+      <link rel="stylesheet" type="text/css" href="../../_static/dark_mode_css/dark.css?v=70edf1c7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5eb80f5b"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/translations.js?v=71a39b36"></script>
+      <script src="../../_static/dark_mode_js/default_light.js?v=c2e647ce"></script>
+      <script src="../../_static/dark_mode_js/theme_switcher.js?v=358d3910"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <script src="../../_static/js/versions.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Buscar" href="../search.html" />
+    <link rel="next" title="Funcionalidades avançadas do Talk" href="advanced_features.html" />
+    <link rel="prev" title="Conversar" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../contents.html">
+            
+              <img src="../../_static/logo-white.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="switch-menus">
+                <div class="version-switch"></div>
+                <div class="language-switch"></div>
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Pesquisar documentos" aria-label="Pesquisar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Menu de navegação">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Introdução ao manual do usuário do Nextcloud latest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../webinterface.html">A interface Web Nextcloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../files/index.html">Arquivos &amp; sincronização</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../groupware/index.html">Groupware</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Conversar</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Noções Básicas de Nextcloud Talk</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#creating-a-chat">Criação de um bate-papo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#view-all-open-conversations">Ver todas as conversas abertas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filter-your-conversations">Filtre suas conversas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sharing-files-in-a-chat">Compartilhando arquivos em um bate-papo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inserting-emoji">Inserindo emoji</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#editing-messages">Edição de mensagens</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-markdown">Uso do Markdown</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setting-reminder-on-messages">Configuração de lembretes em mensagens</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#replying-to-messages-and-more">Respondendo a mensagens e muito mais</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#silent-messages">Mensagens silenciosas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#managing-a-conversation">Gerenciando uma conversa</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#messages-expiration">Vencimento de mensagens</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#starting-a-call">Iniciando uma chamada</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#starting-a-screen-share">Iniciando um compartilhamento de tela.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#changing-view-in-a-call">Alterando a visualização em uma chamada</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="advanced_features.html">Funcionalidades avançadas do Talk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="join_a_call_or_chat_as_guest.html">Participe de uma chamada ou bate-papo como convidado</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../desktop/index.html">Clientes de Desktop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userpreferences.html">Configurando suas preferências</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../universal_access.html">Acesso universal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_2fa.html">Usando autenticação de dois fatores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session_management.html">Gerenciar navegadores e dispositivos conectados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../external_storage/index.html">Armazenamento externo</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Menu de navegação móvel" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">Nextcloud latest User Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Navegação da página">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../contents.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Conversar</a></li>
+      <li class="breadcrumb-item active">Noções Básicas de Nextcloud Talk</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/nextcloud/documentation/edit/master/user_manual/talk/talk_basics.rst" class="fa fa-github"> Editar no GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="basics-of-nextcloud-talk">
+<h1>Noções Básicas de Nextcloud Talk<a class="headerlink" href="#basics-of-nextcloud-talk" title="Link para este cabeçalho"></a></h1>
+<p>Nextcloud Talk permite que você converse e faça chamadas de vídeo em seu próprio servidor.</p>
+<p>Bate-papos e chamadas ocorrem em conversas. Você pode criar qualquer número de conversas. Existem dois tipos de conversas:</p>
+<ol class="arabic simple">
+<li><p>** Conversas individuais. ** Aqui é onde você tem um bate-papo privado ou liga para outro usuário do Talk. Você não pode adicionar outras pessoas a esta conversa ou compartilhá-la com um link. Você inicia um bate-papo individual direto procurando por outro usuário na barra de pesquisa e clicando em seu nome.</p></li>
+<li><p>** Conversas em grupo. ** Além da pessoa que criou a conversa, uma conversa em grupo pode ter qualquer número de pessoas nela. Uma conversa em grupo pode ser compartilhada publicamente com um link, para que usuários externos convidados possam participar de uma chamada. Ele também pode ser listado, para que outras pessoas em seu servidor Nextcloud possam entrar na conversa.</p></li>
+</ol>
+<section id="creating-a-chat">
+<h2>Criação de um bate-papo<a class="headerlink" href="#creating-a-chat" title="Link para este cabeçalho"></a></h2>
+<p>Você pode criar um bate-papo direto e individual procurando o nome de um usuário, um grupo ou uma equipe e clicando nele. Para um único usuário, uma conversa é criada imediatamente e você pode iniciar o bate-papo. Para um grupo ou círculo, você pode escolher um nome e configurações antes de criar a conversa e adicionar os participantes.</p>
+<a class="reference internal image-reference" href="../../_images/chat-with-one-user.png"><img alt="../../_images/chat-with-one-user.png" src="../../_images/chat-with-one-user.png" style="width: 400px;" />
+</a>
+<p>Se você quiser criar uma conversa em grupo personalizada, clique no botão ao lado do campo de pesquisa e do botão de filtros e, em seguida, em <code class="docutils literal notranslate"><span class="pre">Criar</span> <span class="pre">uma</span> <span class="pre">nova</span> <span class="pre">conversa</span></code>.</p>
+<a class="reference internal image-reference" href="../../_images/create-new-conversation.png"><img alt="../../_images/create-new-conversation.png" src="../../_images/create-new-conversation.png" style="width: 400px;" />
+</a>
+<p>Você pode escolher um nome para a conversa, colocar uma descrição e configurar um avatar para ela (com foto ou emoji carregado) e selecionar se a conversa deve ser aberta para usuários externos e se outros usuários no servidor podem ver e junte-se à conversa.</p>
+<a class="reference internal image-reference" href="../../_images/creating-open-conversation.png"><img alt="../../_images/creating-open-conversation.png" src="../../_images/creating-open-conversation.png" style="width: 500px;" />
+</a>
+<p>Na segunda etapa, você consegue adicionar participantes e finalizar a criação da conversa.</p>
+<a class="reference internal image-reference" href="../../_images/add-participants.png"><img alt="../../_images/add-participants.png" src="../../_images/add-participants.png" style="width: 500px;" />
+</a>
+<p>Após a confirmação, você será redirecionado para a nova conversa e poderá começar a se comunicar imediatamente.</p>
+<a class="reference internal image-reference" href="../../_images/new-room.png"><img alt="../../_images/new-room.png" src="../../_images/new-room.png" style="width: 700px;" />
+</a>
+</section>
+<section id="view-all-open-conversations">
+<h2>Ver todas as conversas abertas<a class="headerlink" href="#view-all-open-conversations" title="Link para este cabeçalho"></a></h2>
+<p>Você pode visualizar todas as conversas das quais pode participar clicando no botão ao lado do campo de pesquisa e do botão de filtros e, em seguida, em <code class="docutils literal notranslate"><span class="pre">Participe</span> <span class="pre">de</span> <span class="pre">conversas</span> <span class="pre">abertas</span></code>.</p>
+<a class="reference internal image-reference" href="../../_images/join-open-conversations.png"><img alt="../../_images/join-open-conversations.png" src="../../_images/join-open-conversations.png" style="width: 400px;" />
+</a>
+</section>
+<section id="filter-your-conversations">
+<h2>Filtre suas conversas<a class="headerlink" href="#filter-your-conversations" title="Link para este cabeçalho"></a></h2>
+<p>Você pode filtrar suas conversas usando o botão de filtro localizado ao lado do campo de pesquisa. Existem duas opções de filtragem: 1. Filtrar menções não lidas: Esta opção permite visualizar conversas em grupo com menções não lidas ou conversas individuais não lidas. 2. Filtrar mensagens não lidas: esta opção permite visualizar todas as mensagens não lidas em todas as conversas ingressadas.</p>
+<a class="reference internal image-reference" href="../../_images/filters-menu.png"><img alt="../../_images/filters-menu.png" src="../../_images/filters-menu.png" style="width: 400px;" />
+</a>
+<p>Você pode limpar o filtro no menu de filtros.</p>
+<a class="reference internal image-reference" href="../../_images/clear-filter.png"><img alt="../../_images/clear-filter.png" src="../../_images/clear-filter.png" style="width: 400px;" />
+</a>
+</section>
+<section id="sharing-files-in-a-chat">
+<h2>Compartilhando arquivos em um bate-papo<a class="headerlink" href="#sharing-files-in-a-chat" title="Link para este cabeçalho"></a></h2>
+<p>Você pode compartilhar arquivos em um bate-papo de 3 maneiras.</p>
+<p>Primeiro, você pode simplesmente arrastar e soltar no chat.</p>
+<a class="reference internal image-reference" href="../../_images/drag-and-drop.png"><img alt="../../_images/drag-and-drop.png" src="../../_images/drag-and-drop.png" style="width: 600px;" />
+</a>
+<p>Em segundo lugar, você pode selecionar um arquivo de seus Arquivos Nextcloud ou de um gerenciador de arquivos, escolhendo o pequeno clipe de papel e selecionando de onde deseja escolher o arquivo.</p>
+<a class="reference internal image-reference" href="../../_images/share-files-in-chat.png"><img alt="../../_images/share-files-in-chat.png" src="../../_images/share-files-in-chat.png" style="width: 500px;" />
+</a>
+<a class="reference internal image-reference" href="../../_images/share-files-in-chat-selection.png"><img alt="../../_images/share-files-in-chat-selection.png" src="../../_images/share-files-in-chat-selection.png" style="width: 600px;" />
+</a>
+<p>Você pode adicionar mais arquivos até terminar e decidir compartilhar os arquivos. Você também pode adicionar uma legenda de texto aos seus arquivos compartilhados, fornecendo uma breve descrição ou contexto.</p>
+<a class="reference internal image-reference" href="../../_images/talk-upload-files.png"><img alt="../../_images/talk-upload-files.png" src="../../_images/talk-upload-files.png" style="width: 500px;" />
+</a>
+<p>Todos os usuários poderão clicar nos arquivos para visualizá-los, editá-los ou baixá-los, independentemente de possuírem uma conta de usuário. Os usuários com uma conta terão o arquivo compartilhado automaticamente com eles, enquanto os usuários convidados externos os compartilharão como um link público.</p>
+<a class="reference internal image-reference" href="../../_images/editing-document-in-chat-room.png"><img alt="../../_images/editing-document-in-chat-room.png" src="../../_images/editing-document-in-chat-room.png" style="width: 600px;" />
+</a>
+</section>
+<section id="inserting-emoji">
+<h2>Inserindo emoji<a class="headerlink" href="#inserting-emoji" title="Link para este cabeçalho"></a></h2>
+<p>Você pode adicionar emoji usando o seletor à esquerda do campo de entrada de texto.</p>
+<a class="reference internal image-reference" href="../../_images/emoji-picker.png"><img alt="../../_images/emoji-picker.png" src="../../_images/emoji-picker.png" style="width: 400px;" />
+</a>
+</section>
+<section id="editing-messages">
+<h2>Edição de mensagens<a class="headerlink" href="#editing-messages" title="Link para este cabeçalho"></a></h2>
+<p>Você pode editar mensagens e legendas em compartilhamentos de arquivos até 6 horas após o envio.</p>
+<a class="reference internal image-reference" href="../../_images/message-editing.png"><img alt="../../_images/message-editing.png" src="../../_images/message-editing.png" style="width: 600px;" />
+</a>
+</section>
+<section id="using-markdown">
+<h2>Uso do Markdown<a class="headerlink" href="#using-markdown" title="Link para este cabeçalho"></a></h2>
+<p>Você pode aprimorar suas mensagens com suporte à sintaxe markdown. Consulte a lista para obter informações sobre o uso:</p>
+<p><strong>Cabeçalhos e divisores</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Heading 1
+## Heading 2
+### Heading 3
+#### Heading 4
+##### Heading 5
+###### Heading 6
+
+Heading
+===
+Normal text
+***
+Normal text
+</pre></div>
+</div>
+<p><strong>Decorações em linha</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>**bold text** __bold text__
+*italicized text* _italicized text_
+`inline code` ``inline code``
+```
+.code-block {
+  display: pre;
+}
+```
+</pre></div>
+</div>
+<p><strong>Listas</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1. Ordered list
+2. Ordered list
+
+* Unordered list
+- Unordered list
++ Unordered list
+</pre></div>
+</div>
+<p><strong>Citações</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; blockquote
+second line of blockquote
+</pre></div>
+</div>
+<p><strong>Listas de tarefas</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- [ ] task to be done
+- [x] completed task
+</pre></div>
+</div>
+<p><strong>Tabelas</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Column A | Column B
+-- | --
+Data A | Data B
+</pre></div>
+</div>
+</section>
+<section id="setting-reminder-on-messages">
+<h2>Configuração de lembretes em mensagens<a class="headerlink" href="#setting-reminder-on-messages" title="Link para este cabeçalho"></a></h2>
+<p>Você pode definir lembretes para mensagens específicas. Se houver uma mensagem importante sobre a qual você deseja ser notificado mais tarde, basta passar o mouse sobre ela e clicar no ícone de lembrete.</p>
+<a class="reference internal image-reference" href="../../_images/set-message-reminder.png"><img alt="../../_images/set-message-reminder.png" src="../../_images/set-message-reminder.png" style="width: 400px;" />
+</a>
+<p>No submenu, você pode selecionar um horário apropriado para receber uma notificação mais tarde.</p>
+<a class="reference internal image-reference" href="../../_images/configure-message-reminder.png"><img alt="../../_images/configure-message-reminder.png" src="../../_images/configure-message-reminder.png" style="width: 400px;" />
+</a>
+</section>
+<section id="replying-to-messages-and-more">
+<h2>Respondendo a mensagens e muito mais<a class="headerlink" href="#replying-to-messages-and-more" title="Link para este cabeçalho"></a></h2>
+<p>Você pode responder a uma mensagem usando a seta que aparece quando você passa o mouse sobre uma mensagem.</p>
+<a class="reference internal image-reference" href="../../_images/reply.png"><img alt="../../_images/reply.png" src="../../_images/reply.png" style="width: 600px;" />
+</a>
+<p>No menu <code class="docutils literal notranslate"><span class="pre">...</span></code> você também pode escolher responder em particular. Isso abrirá um bate-papo individual.</p>
+<a class="reference internal image-reference" href="../../_images/chat-message-menu.png"><img alt="../../_images/chat-message-menu.png" src="../../_images/chat-message-menu.png" style="width: 600px;" />
+</a>
+<p>Aqui você também pode criar um link direto para a mensagem ou marcá-la como não lida para voltar para lá na próxima vez que entrar no chat. Quando for um arquivo, você pode ver o arquivo em Arquivos.</p>
+</section>
+<section id="silent-messages">
+<h2>Mensagens silenciosas<a class="headerlink" href="#silent-messages" title="Link para este cabeçalho"></a></h2>
+<p>Se você não quiser incomodar ninguém no meio da noite, há um modo silencioso para bate-papo. Enquanto ele estiver ativado, os outros participantes não receberão notificações de suas mensagens.</p>
+<a class="reference internal image-reference" href="../../_images/message-silent.png"><img alt="../../_images/message-silent.png" src="../../_images/message-silent.png" style="width: 600px;" />
+</a>
+</section>
+<section id="managing-a-conversation">
+<h2>Gerenciando uma conversa<a class="headerlink" href="#managing-a-conversation" title="Link para este cabeçalho"></a></h2>
+<p>Você é sempre moderador em sua nova conversa. Na lista de participantes você pode promover outros participantes a moderadores usando o menu <code class="docutils literal notranslate"><span class="pre">...</span></code> à direita de seu nome de usuário, atribuir a eles permissões personalizadas ou removê-los da conversa.</p>
+<p>Alterar as permissões de um usuário que ingressou em uma conversa pública também o adicionará permanentemente à conversa.</p>
+<a class="reference internal image-reference" href="../../_images/participant-menu.png"><img alt="../../_images/participant-menu.png" src="../../_images/participant-menu.png" style="width: 400px;" />
+</a>
+<p>Os moderadores podem configurar a conversa. Selecione <code class="docutils literal notranslate"><span class="pre">Configurações</span> <span class="pre">de</span> <span class="pre">conversa</span></code> no menu <code class="docutils literal notranslate"><span class="pre">...</span></code> da conversa na parte superior para acessar as configurações.</p>
+<a class="reference internal image-reference" href="../../_images/open-settings.png"><img alt="../../_images/open-settings.png" src="../../_images/open-settings.png" style="width: 400px;" />
+</a>
+<p>Aqui você pode configurar a descrição, acesso de convidado, se a conversa está visível para outras pessoas no servidor e muito mais.</p>
+<a class="reference internal image-reference" href="../../_images/conversation-settings-dialog.png"><img alt="../../_images/conversation-settings-dialog.png" src="../../_images/conversation-settings-dialog.png" style="width: 600px;" />
+</a>
+</section>
+<section id="messages-expiration">
+<h2>Vencimento de mensagens<a class="headerlink" href="#messages-expiration" title="Link para este cabeçalho"></a></h2>
+<p>Um moderador pode configurar a expiração da mensagem nas <code class="docutils literal notranslate"><span class="pre">Configurações</span> <span class="pre">da</span> <span class="pre">conversa</span></code> na seção <code class="docutils literal notranslate"><span class="pre">Moderação</span></code>. Quando uma mensagem atinge o tempo de expiração, ela é automaticamente removida da conversa. As durações de expiração disponíveis são 1 hora, 8 horas, 1 dia, 1 semana, 4 semanas ou nunca (que é a configuração padrão).</p>
+<a class="reference internal image-reference" href="../../_images/messages-expiration.png"><img alt="../../_images/messages-expiration.png" src="../../_images/messages-expiration.png" style="width: 500px;" />
+</a>
+</section>
+<section id="starting-a-call">
+<h2>Iniciando uma chamada<a class="headerlink" href="#starting-a-call" title="Link para este cabeçalho"></a></h2>
+<p>Durante uma conversa, você pode iniciar uma chamada a qualquer momento com o botão <code class="docutils literal notranslate"><span class="pre">Iniciar</span> <span class="pre">chamada</span></code>. Outros participantes serão notificados e poderão participar da chamada.</p>
+<a class="reference internal image-reference" href="../../_images/device-settings-before-call.png"><img alt="../../_images/device-settings-before-call.png" src="../../_images/device-settings-before-call.png" style="width: 400px;" />
+</a>
+<p>Se outra pessoa já iniciou uma chamada, o botão mudará para um botão verde <code class="docutils literal notranslate"><span class="pre">Juntar-se</span> <span class="pre">ao</span> <span class="pre">bate-papo</span></code>.</p>
+<a class="reference internal image-reference" href="../../_images/join-call.png"><img alt="../../_images/join-call.png" src="../../_images/join-call.png" style="width: 600px;" />
+</a>
+<p>Durante uma chamada, você pode silenciar seu microfone e desabilitar seu vídeo com os botões do lado direito da barra superior, ou usando os atalhos <code class="docutils literal notranslate"><span class="pre">M</span></code> para silenciar o áudio e <code class="docutils literal notranslate"><span class="pre">V</span></code> para desabilitar o vídeo. Você também pode usar a barra de espaço para alternar o mudo. Quando você estiver silenciado, pressionar espaço irá reativar o som para que você possa falar até soltar a barra de espaço. Se você estiver com o som ativado, pressionar espaço irá silenciá-lo até que você solte.</p>
+<p>Você pode ocultar seu vídeo (útil durante um compartilhamento de tela) com a pequena seta logo acima do fluxo de vídeo. Traga de volta com a pequena flecha novamente.</p>
+<p>Você pode acessar suas configurações e escolher uma webcam diferente, microfone e outras configurações no menu <code class="docutils literal notranslate"><span class="pre">...</span></code> na barra superior.</p>
+<a class="reference internal image-reference" href="../../_images/media-settings.png"><img alt="../../_images/media-settings.png" src="../../_images/media-settings.png" style="width: 300px;" />
+</a>
+<p>Na caixa de diálogo de configurações de mídia, você também pode alterar o plano de fundo do seu vídeo.</p>
+<a class="reference internal image-reference" href="../../_images/background-settings-in-call.png"><img alt="../../_images/background-settings-in-call.png" src="../../_images/background-settings-in-call.png" style="width: 400px;" />
+</a>
+<p>Você pode alterar outras configurações na caixa de diálogo <code class="docutils literal notranslate"><span class="pre">Configurar</span> <span class="pre">bate-papo</span></code>.</p>
+<a class="reference internal image-reference" href="../../_images/talk-settings.png"><img alt="../../_images/talk-settings.png" src="../../_images/talk-settings.png" style="width: 600px;" />
+</a>
+</section>
+<section id="starting-a-screen-share">
+<h2>Iniciando um compartilhamento de tela.<a class="headerlink" href="#starting-a-screen-share" title="Link para este cabeçalho"></a></h2>
+<p>Você pode clicar no ícone do monitor no seu fluxo de vídeo para compartilhar sua tela. Dependendo do seu navegador, você terá a opção de compartilhar um monitor, uma janela de aplicativo ou uma única guia do navegador. Se o vídeo da sua câmera também estiver disponível, os outros participantes o verão em uma pequena exibição do apresentador ao lado do compartilhamento de tela.</p>
+<a class="reference internal image-reference" href="../../_images/share-screen-with-camera.png"><img alt="../../_images/share-screen-with-camera.png" src="../../_images/share-screen-with-camera.png" style="width: 700px;" />
+</a>
+</section>
+<section id="changing-view-in-a-call">
+<h2>Alterando a visualização em uma chamada<a class="headerlink" href="#changing-view-in-a-call" title="Link para este cabeçalho"></a></h2>
+<p>Você pode alternar a visualização em uma chamada com o pequeno ícone de quatro blocos no canto superior direito entre visualização promovida e visualização em grade. A visualização em grade mostrará todos igualmente grandes e se as pessoas não couberem na tela, aparecerão botões à esquerda e à direita que permitem navegar.</p>
+<a class="reference internal image-reference" href="../../_images/talk-grid-view.png"><img alt="../../_images/talk-grid-view.png" src="../../_images/talk-grid-view.png" style="width: 700px;" />
+</a>
+<p>A visualização promovida mostra o alto-falante grande e outros em uma linha abaixo. Se as pessoas não couberem na tela, aparecerão botões à esquerda e à direita que permitem navegar.</p>
+<a class="reference internal image-reference" href="../../_images/talk-promoted-view.png"><img alt="../../_images/talk-promoted-view.png" src="../../_images/talk-promoted-view.png" style="width: 700px;" />
+</a>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Rodapé">
+        <a href="index.html" class="btn btn-neutral float-left" title="Conversar" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="advanced_features.html" class="btn btn-neutral float-right" title="Funcionalidades avançadas do Talk" accesskey="n" rel="next">Próximo <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Direitos autorais 2025 Nextcloud GmbH.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Languages</dt>
+<dd><a href="/server/latest/user_manual/af/">af</a></dd>
+<dd><a href="/server/latest/user_manual/ar/">ar</a></dd>
+<dd><a href="/server/latest/user_manual/br/">br</a></dd>
+<dd><a href="/server/latest/user_manual/ca/">ca</a></dd>
+<dd><a href="/server/latest/user_manual/cs/">cs</a></dd>
+<dd><a href="/server/latest/user_manual/da/">da</a></dd>
+<dd><a href="/server/latest/user_manual/de/">de</a></dd>
+<dd><a href="/server/latest/user_manual/el/">el</a></dd>
+<dd><a href="/server/latest/user_manual/el_GR/">el_GR</a></dd>
+<dd><a href="/server/latest/user_manual/en/">en</a></dd>
+<dd><a href="/server/latest/user_manual/eo/">eo</a></dd>
+<dd><a href="/server/latest/user_manual/es/">es</a></dd>
+<dd><a href="/server/latest/user_manual/eu/">eu</a></dd>
+<dd><a href="/server/latest/user_manual/fi_FI/">fi_FI</a></dd>
+<dd><a href="/server/latest/user_manual/fr/">fr</a></dd>
+<dd><a href="/server/latest/user_manual/ga/">ga</a></dd>
+<dd><a href="/server/latest/user_manual/gl/">gl</a></dd>
+<dd><a href="/server/latest/user_manual/hr/">hr</a></dd>
+<dd><a href="/server/latest/user_manual/hu/">hu</a></dd>
+<dd><a href="/server/latest/user_manual/hu_HU/">hu_HU</a></dd>
+<dd><a href="/server/latest/user_manual/id/">id</a></dd>
+<dd><a href="/server/latest/user_manual/it/">it</a></dd>
+<dd><a href="/server/latest/user_manual/ja_JP/">ja_JP</a></dd>
+<dd><a href="/server/latest/user_manual/ko/">ko</a></dd>
+<dd><a href="/server/latest/user_manual/mn/">mn</a></dd>
+<dd><a href="/server/latest/user_manual/nb_NO/">nb_NO</a></dd>
+<dd><a href="/server/latest/user_manual/nl/">nl</a></dd>
+<dd><a href="/server/latest/user_manual/nn/">nn</a></dd>
+<dd><a href="/server/latest/user_manual/pl/">pl</a></dd>
+<dd><a href="/server/latest/user_manual/pt_BR/">pt_BR</a></dd>
+<dd><a href="/server/latest/user_manual/pt_PT/">pt_PT</a></dd>
+<dd><a href="/server/latest/user_manual/ro/">ro</a></dd>
+<dd><a href="/server/latest/user_manual/ru/">ru</a></dd>
+<dd><a href="/server/latest/user_manual/si/">si</a></dd>
+<dd><a href="/server/latest/user_manual/sk_SK/">sk_SK</a></dd>
+<dd><a href="/server/latest/user_manual/sq/">sq</a></dd>
+<dd><a href="/server/latest/user_manual/sr/">sr</a></dd>
+<dd><a href="/server/latest/user_manual/sv/">sv</a></dd>
+<dd><a href="/server/latest/user_manual/ta/">ta</a></dd>
+<dd><a href="/server/latest/user_manual/th/">th</a></dd>
+<dd><a href="/server/latest/user_manual/tr/">tr</a></dd>
+<dd><a href="/server/latest/user_manual/uk/">uk</a></dd>
+<dd><a href="/server/latest/user_manual/uz/">uz</a></dd>
+<dd><a href="/server/latest/user_manual/vi/">vi</a></dd>
+<dd><a href="/server/latest/user_manual/zh_CN/">zh_CN</a></dd>
+<dd><a href="/server/latest/user_manual/zh_HK/">zh_HK</a></dd>
+<dd><a href="/server/latest/user_manual/zh_TW/">zh_TW</a></dd>
+          <!--Here goes the Langs-->
+      </dl>
+    </div>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versões</dt>
+        
+          <dd><a href="https://docs.nextcloud.com/server/29/user_manual">29</a></dd>
+        
+          <dd><a href="https://docs.nextcloud.com/server/30/user_manual">30</a></dd>
+        
+          <dd><a href="https://docs.nextcloud.com/server/31/user_manual">31</a></dd>
+        
+          <dd><a href="https://docs.nextcloud.com/server/stable/user_manual">stable</a></dd>
+        
+          <dd><a href="https://docs.nextcloud.com/server/latest/user_manual">latest</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+      </dl>
+      <dl>
+        
+        <dt>Em Leia os Documentos </dt>
+          <dd>
+            <a href="///projects//?fromdocs=">Projeto Home</a>
+          </dd>
+          <dd>
+            <a href="///builds//?fromdocs=">Builds</a>
+          </dd>
+      </dl>
+    </div>
+  </div>
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
