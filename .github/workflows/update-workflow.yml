@@ -8,23 +8,35 @@ on:
         required: true
         type: string
         default: .github/workflows/sphinxbuild.yml
-      target_branch:
-        description: 'Target branch to commit the file to'
-        required: true
-        type: string
-        default: stable20
 
 jobs:
-  checkout-file:
+  checkout:
     runs-on: ubuntu-latest
-    
+
+    strategy:
+      matrix:
+        target_branch:
+          - stable19
+          - stable20
+          - stable21
+          - stable22
+          - stable23
+          - stable24
+          - stable25
+          - stable26
+          - stable27
+          - stable28
+          - stable29
+          - stable30
+          - stable31
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
         fetch-depth: 0  # Fetch full history to access all branches
         token: ${{ secrets.GITHUB_TOKEN }}
-        ref: ${{ inputs.target_branch }}
+        ref: ${{ matrix.target_branch }}
     
     - name: Configure Git
       run: |
@@ -41,4 +53,4 @@ jobs:
         git add ${{ inputs.file_path }}
         git commit -sm "chore: update ${{ inputs.file_path }} from master branch"
         
-        git push origin ${{ inputs.target_branch }}
+        git push origin ${{ matrix.target_branch }}
