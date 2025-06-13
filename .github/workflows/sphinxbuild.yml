@@ -153,6 +153,8 @@ jobs:
         git config --local user.name "GitHub Action"
         git add .
         git diff --staged --quiet || git commit -m "chore: deploy documentation for ${{ steps.branch.outputs.branch_name }}"
+        # Ensure we are up to date with the remote gh-pages branch
+        git pull --rebase origin gh-pages
         git push origin gh-pages
 
   summary:
