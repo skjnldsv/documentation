@@ -35,7 +35,7 @@ jobs:
       uses: actions/checkout@v4
       with:
         fetch-depth: 0  # Fetch full history to access all branches
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.WORKFLOW_TOKEN }}
         ref: ${{ matrix.target_branch }}
     
     - name: Configure Git
