@@ -136,6 +136,10 @@ jobs:
 
         # Move pdf files to the root of the branch_name
         mv server/${{ steps.branch.outputs.branch_name }}/*/*.pdf server/${{ steps.branch.outputs.branch_name }}/ || true
+
+        # Cleanup
+        find . -type d -empty -delete
+        rm -rf artifacts
     
     - name: Add go.php redirect
       run: |
