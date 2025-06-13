@@ -154,3 +154,18 @@ jobs:
         git add .
         git diff --staged --quiet || git commit -m "chore: deploy documentation for ${{ steps.branch.outputs.branch_name }}"
         git push origin gh-pages
+
+  summary:
+    needs: build
+    runs-on: ubuntu-latest-low
+    if: always()
+    
+    permissions:
+      contents: read
+
+    name: build-deploy-summary
+
+    steps:
+      # Only check if the build was successful
+      - name: Summary status
+        run: if ${{ needs.build.result != 'success' }}; then exit 1; fi
