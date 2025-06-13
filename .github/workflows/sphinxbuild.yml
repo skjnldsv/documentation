@@ -19,6 +19,7 @@ jobs:
             directory: "user_manual"
             make_target: "html"
             build_path: "_build/html"
+            build_pdf_path: "_build/pdf"
             publish: true
             
           - name: "user_manual-en"
@@ -37,6 +38,7 @@ jobs:
             directory: "admin_manual"
             make_target: "html"
             build_path: "_build/html/com"
+            build_pdf_path: "_build/pdf"
             publish: true
 
     steps:
@@ -44,12 +46,21 @@ jobs:
     - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
       with:
         python-version: '3.10'
+        cache: 'pip'
 
     - name: Install pip dependencies
       run: pip install -r requirements.txt
 
-    - name: Build using Makefile
+    - name: Build html documentation
       run: cd ${{ matrix.manual.directory }} && make ${{ matrix.manual.make_target }}
+
+    - name: Build pdf documentation
+      if: ${{ matrix.manual.build_pdf_path }}
+      run: |
+        cd ${{ matrix.manual.directory }}
+        make pdf
+        ls -la ${{ matrix.manual.build_pdf_path }}
+        cp ${{ matrix.manual.build_pdf_path }}/*.pdf ${{ matrix.manual.build_path }}/
 
     - name: Upload static documentation
       uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
@@ -59,6 +70,7 @@ jobs:
         path: ${{ matrix.manual.directory }}/${{ matrix.manual.build_path }}
 
   deploy:
+    name: Deploy pages
     needs: build
     runs-on: ubuntu-latest
     if: github.event_name == 'push'  # Only deploy on push, not PR
@@ -112,25 +124,48 @@ jobs:
 
         # Cleanup old documentation
         rm -rf ${{ steps.branch.outputs.branch_name }}
-        mkdir -p ${{ steps.branch.outputs.branch_name }}
+        rm -rf server/${{ steps.branch.outputs.branch_name }}
+        mkdir -p server/${{ steps.branch.outputs.branch_name }}
 
         # Copy all built documentation
         for artifact in artifacts/*; do
           if [ -d "$artifact" ]; then
-            cp -r "$artifact/" ${{ steps.branch.outputs.branch_name }}
+            cp -r "$artifact/" server/${{ steps.branch.outputs.branch_name }}
           fi
         done
+
+        # Move pdf files to the root of the branch_name
+        mv server/${{ steps.branch.outputs.branch_name }}/*/*.pdf server/${{ steps.branch.outputs.branch_name }}/ || true
+
+        # Cleanup
+        find . -type d -empty -delete
+        rm -rf artifacts
     
     - name: Add go.php redirect
       run: |
-        mkdir -p ${{ steps.branch.outputs.branch_name }}/go.php
-        git checkout ${{github.sha}} -- go.php/index.html
-        mv go.php/index.html ${{ steps.branch.outputs.branch_name }}/go.php/index.html
+        git checkout origin/${{ github.event.repository.default_branch }} -- go.php/index.html
+        mkdir -p server/${{ steps.branch.outputs.branch_name }}/go.php
+        mv go.php/index.html server/${{ steps.branch.outputs.branch_name }}/go.php/index.html
 
     - name: Commit and push to gh-pages
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add ${{ steps.branch.outputs.branch_name }}
+        git add .
         git diff --staged --quiet || git commit -m "chore: deploy documentation for ${{ steps.branch.outputs.branch_name }}"
         git push origin gh-pages
+
+  summary:
+    needs: build
+    runs-on: ubuntu-latest-low
+    if: always()
+    
+    permissions:
+      contents: read
+
+    name: build-deploy-summary
+
+    steps:
+      # Only check if the build was successful
+      - name: Summary status
+        run: if ${{ needs.build.result != 'success' }}; then exit 1; fi
