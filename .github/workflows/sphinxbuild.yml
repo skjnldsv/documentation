@@ -123,24 +123,24 @@ jobs:
         ls -la artifacts/*/
 
         # Cleanup old documentation
-        rm -rf ${{ steps.branch.outputs.branch_name }}
-        mkdir -p ${{ steps.branch.outputs.branch_name }}
+        rm -rf server/${{ steps.branch.outputs.branch_name }}
+        mkdir -p server/${{ steps.branch.outputs.branch_name }}
 
         # Copy all built documentation
         for artifact in artifacts/*; do
           if [ -d "$artifact" ]; then
-            cp -r "$artifact/" ${{ steps.branch.outputs.branch_name }}
+            cp -r "$artifact/" server/${{ steps.branch.outputs.branch_name }}
           fi
         done
 
         # Move pdf files to the root of the branch_name
-        mv ${{ steps.branch.outputs.branch_name }}/*/*.pdf ${{ steps.branch.outputs.branch_name }}/ || true
+        mv server/${{ steps.branch.outputs.branch_name }}/*/*.pdf server/${{ steps.branch.outputs.branch_name }}/ || true
     
     - name: Add go.php redirect
       run: |
         mkdir -p ${{ steps.branch.outputs.branch_name }}/go.php
         git checkout origin/${{ github.event.repository.default_branch }} -- go.php/index.html
-        mv go.php/index.html ${{ steps.branch.outputs.branch_name }}/go.php/index.html
+        mv go.php/index.html server/${{ steps.branch.outputs.branch_name }}/go.php/index.html
 
     - name: Commit and push to gh-pages
       run: |
