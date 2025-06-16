@@ -10,7 +10,7 @@ build/composer.lock
 developer_manual/api/
 server/
 _build
-index.html
+/index.html
 
 *.pyc
 

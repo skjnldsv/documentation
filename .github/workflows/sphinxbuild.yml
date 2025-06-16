@@ -149,9 +149,9 @@ jobs:
         mv go.php/index.html server/${{ steps.branch.outputs.branch_name }}/go.php/index.html
 
         # Generate user_manual english redirect
-        git checkout ${{ github.sha }} -- user_manual_index.html
+        git checkout ${{ github.sha }} -- user_manual/index.html
         mkdir -p server/${{ steps.branch.outputs.branch_name }}/user_manual
-        mv user_manual_index.html server/${{ steps.branch.outputs.branch_name }}/user_manual/index.html     
+        mv user_manual/index.html server/${{ steps.branch.outputs.branch_name }}/user_manual/index.html     
 
     - name: Commit and push to gh-pages
       run: |
