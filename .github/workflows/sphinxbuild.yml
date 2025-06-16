@@ -21,13 +21,19 @@ jobs:
             build_path: "_build/html"
             build_pdf_path: "_build/pdf"
             publish: true
-
+            
+          - name: "user_manual-en"
+            directory: "user_manual"
+            make_target: "html-lang-en"
+            build_path: "_build/html"
+            publish: false
+            
           - name: "developer_manual"
             directory: "developer_manual"
             make_target: "html"
             build_path: "_build/html/com"
             publish: true
-
+            
           - name: "admin_manual"
             directory: "admin_manual"
             make_target: "html"
@@ -36,7 +42,18 @@ jobs:
             publish: true
 
     steps:
-    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+    - name: Cache git metadata
+      uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684 # v4.2.3
+      with:
+        path: .git
+        key: git-metadata-${{ github.sha }}
+        restore-keys: |
+          git-metadata-${{ github.sha }}
+          git-metadata
+
+    - name: Checkout repository
+      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
     - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
       with:
         python-version: '3.10'
@@ -73,6 +90,15 @@ jobs:
       contents: write
 
     steps:
+    - name: Cache git metadata
+      uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684 # v4.2.3
+      with:
+        path: .git
+        key: git-metadata-${{ github.sha }}
+        restore-keys: |
+          git-metadata-${{ github.sha }}
+          git-metadata
+
     - name: Checkout Github Pages branch
       uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       with:
@@ -135,11 +161,17 @@ jobs:
         find . -type d -empty -delete
         rm -rf artifacts
     
-    - name: Add go.php redirect
+    - name: Add various redirects
       run: |
+        # Generate go.php redirect from main branch
         git checkout origin/${{ github.event.repository.default_branch }} -- go.php/index.html
         mkdir -p server/${{ steps.branch.outputs.branch_name }}/go.php
         mv go.php/index.html server/${{ steps.branch.outputs.branch_name }}/go.php/index.html
+
+        # Generate user_manual english redirect
+        git checkout origin/${{ github.ref_name }} -- user_manual/index.html
+        mkdir -p server/${{ steps.branch.outputs.branch_name }}/user_manual
+        mv user_manual/index.html server/${{ steps.branch.outputs.branch_name }}/user_manual/index.html     
 
     - name: Commit and push to gh-pages
       run: |
