@@ -68,6 +68,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Verwenden der E-Mail-App</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#managing-your-mail-account">Ihr E-Mail-Konto verwalten</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#switch-layout">Layout umschalten</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#message-display-operation-mode">Meldungsanzeige / Betriebsmodus</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#add-a-new-mail-account">Ein neues E-Mail-Konto hinzufügen</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#change-sort-order">Sortierreihenfolge ändern</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#scheduled-messages">Geplante Nachrichten</a></li>
@@ -115,6 +116,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#filtering-and-autoresponder">Filterung und automatische Antworten</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#autoresponders">Automatische Antworten</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#filter">Filter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-a-filter-from-a-message">Erstellen eines Filters aus einer Nachricht</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#follow-up-reminders">Nachverfolgen-Erinnerungen</a></li>
@@ -191,6 +193,22 @@
 </ol>
 <figure class="align-default">
 <img alt="../../_images/mail_layout.png" src="../../_images/mail_layout.png" />
+</figure>
+</section>
+<section id="message-display-operation-mode">
+<h3>Meldungsanzeige / Betriebsmodus<a class="headerlink" href="#message-display-operation-mode" title="Link to this heading"></a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 5.2.</span></p>
+</div>
+<p>Mail bietet die Möglichkeit, zwischen zwei verschiedenen Nachrichtenansichten und Betriebsmodi zu wechseln: <em>Threaded</em> und <em>Singleton</em>.</p>
+<p>Im Thread-Modus werden Nachrichten nach Konversation gruppiert. In der Mailbox-Nachrichtenliste werden zusammengehörende Nachrichten gestapelt, sodass nur die aktuellste Nachricht angezeigt wird. Alle zugehörigen Nachrichten werden nach Auswahl der gestapelten Nachricht im Nachrichtenanzeigefeld angezeigt. Dies ist hilfreich, um Diskussionen zu verfolgen und den Kontext von Antworten zu verstehen. In diesem Modus gelten Nachrichtenvorgänge wie Verschieben und Löschen für den gesamten Thread. Das bedeutet, dass beim Verschieben oder Löschen eines Threads alle Nachrichten innerhalb dieses Threads betroffen sind.</p>
+<p>Im <em>Singleton</em>-Modus werden Nachrichten einzeln angezeigt, sowohl in der Mailbox-Nachrichtenliste als auch im Nachrichtenanzeigefeld. Funktionen wie Verschieben und Löschen gelten nur für die ausgewählte Nachricht. Dieser Modus ist nützlich, wenn Sie Nachrichten separat verwalten möchten, ohne die gesamte Konversation zu beeinflussen.</p>
+<ol class="arabic simple">
+<li><p>E-Mail-Einstellungen besuchen</p></li>
+<li><p>Zzwischen <em>Threaded</em> und <em>Singleton</em> wählen</p></li>
+</ol>
+<figure class="align-default">
+<img alt="../../_images/mail_display-mode.png" src="../../_images/mail_display-mode.png" />
 </figure>
 </section>
 <section id="add-a-new-mail-account">
@@ -601,11 +619,11 @@
 <li><p>Bewegen Sie den Mauszeiger über den Filter, den Sie löschen möchten, und klicken Sie dann auf das Papierkorbsymbol.</p></li>
 </ol>
 </section>
-<section id="tests">
-<h4>Tests<a class="headerlink" href="#tests" title="Link to this heading"></a></h4>
-<p>Auf eingehende E-Mails auf Ihrem Mailserver werden Tests angewendet. Dabei werden Felder wie Betreff (die Betreffzeile der E-Mail), Von (der Absender) und An (der Empfänger) geprüft. Sie können die folgenden Operatoren verwenden, um Bedingungen für diese Felder zu definieren:</p>
+<section id="conditions">
+<h4>Bedingungen<a class="headerlink" href="#conditions" title="Link to this heading"></a></h4>
+<p>Auf eingehende E-Mails auf Ihrem Mailserver werden Bedingungen angewendet, die auf Felder wie Betreff, Absender und Empfänger abzielen. Sie können die folgenden Operatoren verwenden, um Bedingungen für diese Felder zu definieren:</p>
 <ul class="simple">
-<li><p><strong>is</strong>: Eine exakte Übereinstimmung. Das Feld muss mit dem angegebenen Wert identisch sein.</p></li>
+<li><p><strong>ist genau</strong>: Eine exakte Übereinstimmung. Das Feld muss mit dem angegebenen Wert identisch sein.</p></li>
 <li><p><strong>contains</strong>: Eine Teilzeichenfolgeübereinstimmung. Das Feld stimmt überein, wenn der angegebene Wert darin enthalten ist. Beispielsweise würde „Report“ mit „Port“ übereinstimmen.</p></li>
 <li><p><strong>matches</strong>: Ein Mustervergleich mit Platzhaltern. Das Symbol „*“ steht für eine beliebige Anzahl von Zeichen (auch für keines), während „?“ für genau ein Zeichen steht. So würde beispielsweise „<em>Bericht</em>“ auf „Geschäftsbericht 2024“ passen.</p></li>
 </ul>
@@ -619,6 +637,17 @@
 <li><p><strong>stop</strong>: Hält die Ausführung des Filterskripts an. Nach dieser Aktion werden keine weiteren Filter mehr ausgeführt.</p></li>
 </ul>
 </section>
+</section>
+<section id="create-a-filter-from-a-message">
+<h3>Erstellen eines Filters aus einer Nachricht<a class="headerlink" href="#create-a-filter-from-a-message" title="Link to this heading"></a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 5.2.</span></p>
+</div>
+<p>Um einen Filter für eine bestimmte Nachricht zu erstellen, öffnen Sie die Nachricht und öffnen Sie anschließend das Menü, indem Sie auf die drei Punkte klicken. Klicken Sie anschließend auf „Weitere Aktionen“ und anschließend auf „Mail-Filter erstellen“.</p>
+<p>Im Dialog die Bedingungen für eingehende Nachrichten auswählen und mit einem Klick auf „Mailfilter erstellen“ fortfahren.</p>
+<figure class="align-default">
+<img alt="../../_images/mail_create_filter_from_message.png" src="../../_images/mail_create_filter_from_message.png" />
+</figure>
 </section>
 </section>
 <section id="follow-up-reminders">

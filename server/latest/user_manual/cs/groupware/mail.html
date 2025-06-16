@@ -68,6 +68,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Používání aplikace E-mail</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#managing-your-mail-account">Správa vašeho e-mailového účtu</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#switch-layout">Přepnout rozvržení</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#message-display-operation-mode">Režim zobrazení / operací se zprávami</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#add-a-new-mail-account">Přidání nového e-mailového účtu</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#change-sort-order">Změna pořadí řazení</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#scheduled-messages">Naplánované zprávy</a></li>
@@ -115,6 +116,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#filtering-and-autoresponder">Filtrování a automatické odpovídání</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#autoresponders">Automatické odpovědi</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#filter">Filtr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-a-filter-from-a-message">Vytvoření filtru ze zprávy</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#follow-up-reminders">Připomínky následných kroků</a></li>
@@ -191,6 +193,22 @@
 </ol>
 <figure class="align-default">
 <img alt="../../_images/mail_layout.png" src="../../_images/mail_layout.png" />
+</figure>
+</section>
+<section id="message-display-operation-mode">
+<h3>Režim zobrazení / operací se zprávami<a class="headerlink" href="#message-display-operation-mode" title="Link to this heading"></a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 5.2.</span></p>
+</div>
+<p>Aplikace E-mail má schopnost přepínat mezi dvěma různými režimy zobrazování a operací se zprávami: <em>Ve vláknech</em> a <em>Samostatně</em>.</p>
+<p>V režimu <em>Ve vláknech</em> jsou zprávy seskupovány podle konverzací. V seznamu zpráv ve schránce jsou související zprávy naskládány na sebe tak, že jsou zobrazeny pouze ty nejnovější a veškeré související zprávy jsou zobrazovány v panelu zobrazení zprávy (po vybrání naskládané zprávy). To se hodí pro následování diskuzí a porozumění kontextu odpovědí. V tomto režimu jsou operace se zprávou (jako je přesunutí a smazání) uplatňovány na celé vlákno, což znamená, že když přesunete nebo smažete vlákno, bude se to týkat všech zpráv v rámci vlákna.</p>
+<p>V režimu <em>Samostatně</em> jsou zprávy zobrazovány jednotlivě, jak v seznamu zpráv ve schránce a panelu zobrazení zprávy a operace jako přesunutí či smazání se budou týkat pouze označené zprávy. Tento režim je užitečný pokud chcete spravovat zprávy odděleně bez toho, aby to postihlo celou konverzaci.</p>
+<ol class="arabic simple">
+<li><p>Přejděte do nastavení e-mailu</p></li>
+<li><p>Zvolte mezi <em>Ve vláknech</em> a <em>Samostatné</em></p></li>
+</ol>
+<figure class="align-default">
+<img alt="../../_images/mail_display-mode.png" src="../../_images/mail_display-mode.png" />
 </figure>
 </section>
 <section id="add-a-new-mail-account">
@@ -601,11 +619,11 @@
 <li><p>Najeďte ukazatelem na filtr, který si přejete smazat, poté klikněte na ikonu koše.</p></li>
 </ol>
 </section>
-<section id="tests">
-<h4>Testy<a class="headerlink" href="#tests" title="Link to this heading"></a></h4>
-<p>Testy jsou uplatňovány na příchozí e-maily na vámi využívaném e-mailovém serveru, cílící na kolonky jako např. předmět (řádek předmět e-mailu), od (odesilatel) a pro (příjemce). Podmínky pro tyto kolonky je možné definovat následujícími operátory:</p>
+<section id="conditions">
+<h4>Podmínky<a class="headerlink" href="#conditions" title="Link to this heading"></a></h4>
+<p>Podmínky jsou uplatňovány na příchozí e-maily na vámi využívaném e-mailovém serveru, cílící na kolonky jako např. Předmět, Odesilatel a Příjemce. Podmínky pro tyto kolonky je možné definovat následujícími operátory:</p>
 <ul class="simple">
-<li><p><strong>je</strong>: Přesná shoda. Je třeba, aby obsah kolonky byl naprosto stejný, jako zadaná hodnota.</p></li>
+<li><p><strong>je přesně</strong>. Přesná shoda. Je třeba, aby kolonka byla identická se zadanou hodnotou.</p></li>
 <li><p><strong>obsahuje</strong>: Shoda s částí řetězce. Kolonka odpovídá pokud je v ní zadaná hodnota obsažená. Například, „výkaznictví“ by odpovídalo „kazn“.</p></li>
 <li><p><strong>shoduje se</strong>: Shoda se vzorem pomocí zástupných znaků. Symbol „*“ představuje libovolný počet znaků (včetně žádného), zatímco „?“ představuje právě jeden znak. Například „<em>vykaz</em>“ by odpovídal „Vykazy_podnikani_2024“.</p></li>
 </ul>
@@ -619,6 +637,17 @@
 <li><p><strong>stop</strong>. Zastaví vykonávání filtrovacího skriptu. Po této sekci nebudou zpracovávány žádné další filtry.</p></li>
 </ul>
 </section>
+</section>
+<section id="create-a-filter-from-a-message">
+<h3>Vytvoření filtru ze zprávy<a class="headerlink" href="#create-a-filter-from-a-message" title="Link to this heading"></a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 5.2.</span></p>
+</div>
+<p>Pokud chcete z dané zprávy vytvořit filtr, otevřete ji a poté otevřete nabídku kliknutím na tři tečky. Dále klikněte na „Další akce“ a poté „Vytvořit filtr e-mailů“.</p>
+<p>V dialogu vyberte podmínky pro hledání shody s příchozími zprávami a pokračujte kliknutím na „Vytvořit filtr e-mailů“.</p>
+<figure class="align-default">
+<img alt="../../_images/mail_create_filter_from_message.png" src="../../_images/mail_create_filter_from_message.png" />
+</figure>
 </section>
 </section>
 <section id="follow-up-reminders">

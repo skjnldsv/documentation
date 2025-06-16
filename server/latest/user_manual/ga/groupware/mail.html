@@ -67,6 +67,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Ag baint úsáide as an aip Mail</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#managing-your-mail-account">Do chuntas ríomhphoist a bhainistiú</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#switch-layout">Athraigh leagan amach</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#message-display-operation-mode">Taispeántas Teachtaireachtaí / Mód Oibríochta</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#add-a-new-mail-account">Cuir cuntas ríomhphoist nua leis</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#change-sort-order">Athraigh ord sórtála</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#scheduled-messages">Teachtaireachtaí sceidealaithe</a></li>
@@ -114,6 +115,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#filtering-and-autoresponder">Scagadh agus uathfhreagróir</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#autoresponders">Uathfhreagróirí</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#filter">Scagaire</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-a-filter-from-a-message">Cruthaigh scagaire ó theachtaireacht</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#follow-up-reminders">Meabhrúcháin leantacha</a></li>
@@ -190,6 +192,22 @@
 </ol>
 <figure class="align-default">
 <img alt="../../_images/mail_layout.png" src="../../_images/mail_layout.png" />
+</figure>
+</section>
+<section id="message-display-operation-mode">
+<h3>Taispeántas Teachtaireachtaí / Mód Oibríochta<a class="headerlink" href="#message-display-operation-mode" title="Link to this heading"></a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 5.2.</span></p>
+</div>
+<p>Tá an cumas ag Mail aistriú idir dhá mhodh éagsúla radhairc agus oibríochta teachtaireachtaí: <em>Snáithithe</em> agus <em>Singleton</em>.</p>
+<p>Sa mhodh <em>Snáithithe</em>, déantar teachtaireachtaí a ghrúpáil de réir comhrá. Sa liosta teachtaireachtaí bosca poist, déantar teachtaireachtaí gaolmhara a chruachadh ionas nach dtaispeántar ach an teachtaireacht is déanaí, agus taispeántar gach teachtaireacht ghaolmhar sa phainéal taispeána teachtaireachtaí tar éis an teachtaireacht chruachta a roghnú. Tá sé seo úsáideach chun plé a leanúint agus comhthéacs na bhfreagraí a thuiscint. Sa mhodh seo, baineann oibríocht teachtaireachta cosúil le bogadh agus scriosadh leis an snáithe ar fad, rud a chiallaíonn nuair a bhogann tú nó a scriosann tú snáithe, go mbíonn tionchar ar gach teachtaireacht laistigh den snáithe sin.</p>
+<p>I mód <em>Singleton</em>, taispeántar teachtaireachtaí ina n-aonar, i liosta teachtaireachtaí an bhosca poist agus sa phainéal taispeána teachtaireachtaí araon, agus ní bhaineann oibríochtaí cosúil le bogadh agus scriosadh ach leis an teachtaireacht roghnaithe. Tá an mód seo úsáideach nuair is mian leat teachtaireachtaí a bhainistiú ar leithligh gan cur isteach ar an gcomhrá ar fad.</p>
+<ol class="arabic simple">
+<li><p>Tabhair cuairt ar shocruithe ríomhphoist</p></li>
+<li><p>Roghnaigh idir <em>Snáithithe</em>, <em>Singleton</em></p></li>
+</ol>
+<figure class="align-default">
+<img alt="../../_images/mail_display-mode.png" src="../../_images/mail_display-mode.png" />
 </figure>
 </section>
 <section id="add-a-new-mail-account">
@@ -600,11 +618,11 @@
 <li><p>Ainligh thar an scagaire is mian leat a scriosadh, ansin cliceáil ar an deilbhín bruscar.</p></li>
 </ol>
 </section>
-<section id="tests">
-<h4>Tástálacha<a class="headerlink" href="#tests" title="Link to this heading"></a></h4>
-<p>Cuirtear tástálacha i bhfeidhm ar ríomhphoist a thagann isteach ar do fhreastalaí ríomhphoist, ag díriú ar réimsí mar ábhar (líne ábhair an ríomhphoist), ó (an seoltóir), agus chuig (an faighteoir). Is féidir leat na hoibreoirí seo a leanas a úsáid chun coinníollacha a shainiú do na réimsí seo:</p>
+<section id="conditions">
+<h4>Coinníollacha<a class="headerlink" href="#conditions" title="Link to this heading"></a></h4>
+<p>Cuirtear coinníollacha i bhfeidhm ar ríomhphoist isteach ar do fhreastalaí ríomhphoist, ag díriú ar réimsí ar nós Ábhar, Seoltóir, agus Faighteoir. Is féidir leat na hoibreoirí seo a leanas a úsáid chun coinníollacha a shainiú do na réimsí seo:</p>
 <ul class="simple">
-<li><p>** is**: Meaitseáil chruinn. Caithfidh an réimse a bheith comhionann leis an luach a sholáthraítear.</p></li>
+<li><p><strong>tá sé go díreach</strong>: Meaitseáil chruinn. Ní mór don réimse a bheith comhionann leis an luach a cuireadh ar fáil.</p></li>
 <li><p><strong>tá</strong>: Cluiche fotheaghrán. Meaitseálann an réimse má tá an luach soláthraithe istigh ann. Mar shampla, bheadh ​​&quot;tuairisc&quot; ag teacht le &quot;port&quot;.</p></li>
 <li><p><strong>meaitseanna</strong>: Meaitseáil phatrúin ag baint úsáide as saoróga. Seasann an tsiombail &quot;*&quot; d'aon líon carachtar (gan aon cheann san áireamh), agus &quot;?&quot; is ionann é agus carachtar amháin. Mar shampla, bheadh ​​&quot;<em>tuairisc</em>&quot; ag teacht le &quot;Tuarascáil Gnó 2024&quot;.</p></li>
 </ul>
@@ -618,6 +636,17 @@
 <li><p><strong>stop</strong>: Cuireann sé seo stop le feidhmiú na scripte scagaire. Ní dhéanfar aon scagairí eile a phróiseáil tar éis an ghnímh seo.</p></li>
 </ul>
 </section>
+</section>
+<section id="create-a-filter-from-a-message">
+<h3>Cruthaigh scagaire ó theachtaireacht<a class="headerlink" href="#create-a-filter-from-a-message" title="Link to this heading"></a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 5.2.</span></p>
+</div>
+<p>Chun scagaire a chruthú ó theachtaireacht ar leith, oscail an teachtaireacht agus ansin oscail an roghchlár trí chliceáil ar na trí phonc. Ansin, cliceáil ar &quot;Tuilleadh gníomhartha&quot; agus ansin &quot;Cruthaigh scagaire ríomhphoist&quot;.</p>
+<p>Sa dialóg, roghnaigh na coinníollacha chun teachtaireachtaí isteach a mheaitseáil agus lean ar aghaidh trí chliceáil ar &quot;Cruthaigh scagaire ríomhphoist&quot;.</p>
+<figure class="align-default">
+<img alt="../../_images/mail_create_filter_from_message.png" src="../../_images/mail_create_filter_from_message.png" />
+</figure>
 </section>
 </section>
 <section id="follow-up-reminders">
