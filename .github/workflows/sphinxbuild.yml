@@ -141,11 +141,17 @@ jobs:
         find . -type d -empty -delete
         rm -rf artifacts
     
-    - name: Add go.php redirect
+    - name: Add various redirects
       run: |
+        # Generate go.php redirect from main branch
         git checkout origin/${{ github.event.repository.default_branch }} -- go.php/index.html
         mkdir -p server/${{ steps.branch.outputs.branch_name }}/go.php
         mv go.php/index.html server/${{ steps.branch.outputs.branch_name }}/go.php/index.html
+
+        # Generate user_manual english redirect
+        git checkout ${{ github.sha }} -- user_manual_index.html
+        mkdir -p server/${{ steps.branch.outputs.branch_name }}/user_manual
+        mv user_manual_index.html server/${{ steps.branch.outputs.branch_name }}/user_manual/index.html     
 
     - name: Commit and push to gh-pages
       run: |
