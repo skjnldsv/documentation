@@ -169,7 +169,7 @@ jobs:
         mv go.php/index.html server/${{ steps.branch.outputs.branch_name }}/go.php/index.html
 
         # Generate user_manual english redirect
-        git checkout ${{ github.sha }} -- user_manual/index.html
+        git checkout origin/${{ github.ref_name }} -- user_manual/index.html
         mkdir -p server/${{ steps.branch.outputs.branch_name }}/user_manual
         mv user_manual/index.html server/${{ steps.branch.outputs.branch_name }}/user_manual/index.html     
 
