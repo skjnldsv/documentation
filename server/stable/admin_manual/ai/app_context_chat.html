@@ -94,6 +94,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#configuration-options-occ">Configuration Options (OCC)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#configuration-options-backend">Configuration Options (Backend)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#logs">Logs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#possibility-of-data-leak">Possibility of Data Leak</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#known-limitations">Known Limitations</a></li>
 </ul>
@@ -256,12 +257,12 @@
 <p>The options for each command can be found like this, using scan as example: <code class="docutils literal notranslate"><span class="pre">context_chat:scan</span> <span class="pre">--help</span></code></p>
 <ul>
 <li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">context_chat:diagnostics</span></code></dt><dd><p>Check currently running ContextChat background processes.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">context_chat:prompt</span></code></dt><dd><p>Ask a question about your data, with options for selective context.</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">context_chat:prompt</span></code></dt><dd><p>Ask a question about your data, with options for selective context.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">context_chat:search</span></code></dt><dd><p>Perform a semantic (vector DB based) search on your indexed documents, with options for selective context.</p>
 </dd>
 </dl>
 </li>
@@ -352,12 +353,29 @@ If a docker socket proxy is used, the <code class="docutils literal notranslate"
 </section>
 <section id="logs">
 <h2>Logs<a class="headerlink" href="#logs" title="Link to this heading"></a></h2>
-<p>Logs for the <code class="docutils literal notranslate"><span class="pre">context_chat</span></code> PHP app can be found in the Nextcloud log file, which is usually located in the Nextcloud data directory. The log file is named <code class="docutils literal notranslate"><span class="pre">nextcloud.log</span></code>.</p>
+<p>Logs for the <code class="docutils literal notranslate"><span class="pre">context_chat</span></code> PHP app can be found in the Nextcloud log file, which is usually located in the Nextcloud data directory. The log file is named <code class="docutils literal notranslate"><span class="pre">nextcloud.log</span></code>.
+Diagnostic logs can be found in the Nextcloud data directory in <code class="docutils literal notranslate"><span class="pre">context_chat.log</span></code> file.</p>
 <div class="line-block">
-<div class="line">For the backend, warning and error logs can be found in the docker container logs, and the complete logs can be found in <code class="docutils literal notranslate"><span class="pre">logs/</span></code> directory in the persistent storage of the docker container.</div>
+<div class="line">For the backend, warning and error logs can be found in the docker container logs <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">logs</span> <span class="pre">-f</span> <span class="pre">-n</span> <span class="pre">200</span> <span class="pre">nc_app_context_chat_backend</span></code>, and the complete logs can be found in <code class="docutils literal notranslate"><span class="pre">logs/</span></code> directory in the persistent storage of the docker container.</div>
 <div class="line">That will be <code class="docutils literal notranslate"><span class="pre">/nc_app_context_chat_backend/logs/</span></code> in the docker container.</div>
-<div class="line">See <a class="reference external" href="https://github.com/nextcloud/context_chat_backend?tab=readme-ov-file#logs">the Logs head</a> in the backend’s readme for more information.</div>
 </div>
+<p>This command can be used to view the detailed logs in real-time:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">exec</span> <span class="n">nc_app_context_chat_backend</span> <span class="n">tail</span> <span class="o">-</span><span class="n">f</span> <span class="o">/</span><span class="n">nc_app_context_chat_backend</span><span class="o">/</span><span class="n">logs</span><span class="o">/</span><span class="n">ccb</span><span class="o">.</span><span class="n">log</span>
+</pre></div>
+</div>
+<p>Same for the embedding server:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>docker exec nc_app_context_chat_backend tail -f /nc_app_context_chat_backend/logs/embedding_server_*.log``
+</pre></div>
+</div>
+<p>See <a class="reference external" href="https://github.com/nextcloud/context_chat_backend?tab=readme-ov-file#logs">the Logs head</a> in the backend’s readme for more information.</p>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>If the docker container seems to suddenly restart during indexing or querying, it could be related to RAM/storage filling up, or AVX being unavailable on the system. AVX can be checked using <code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">-i</span> <span class="pre">avx</span> <span class="pre">/proc/cpuinfo</span></code> command on the host system. If AVX is not available, the app will not work.</p></li>
+<li><p>Look for issues in the diagnostic logs, the server logs and the docker container <code class="docutils literal notranslate"><span class="pre">nc_app_context_chat_container</span></code> logs. If unsure, open an issue in either of the repositories.</p></li>
+<li><p>Check “Admin settings -&gt; Context Chat” for statistics and information about the indexing process.</p></li>
+</ol>
 </section>
 <section id="possibility-of-data-leak">
 <h2>Possibility of Data Leak<a class="headerlink" href="#possibility-of-data-leak" title="Link to this heading"></a></h2>
